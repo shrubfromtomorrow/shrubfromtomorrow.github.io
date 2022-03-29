@@ -9,14 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100;0,300;0,400;0,800;0,900;1,700&display=swap" rel="stylesheet"/> -->
     <link
       rel="stylesheet"
-      href="../../css/about.css"
+      href="../css/about.css"
     />
     <title>Porfolio</title>
   </head>
   <body>
+    <div class="load"></div>
     <div id="nav">
       <a href="301/301home.html" id="junior">Junior</a>
-      <a href="about.html" id="about">About</a>
+      <a href="index.html" id="home">Home</a>
       <a href="401/401home.html" id="senior">Senior</a>
     </div>
     <div class="menubtn">
@@ -132,5 +133,63 @@
     <div>
       <p id="title">About</p>
     </div>
+    <script>
+      const menuBtn = document.querySelector(".menubtn");
+      let menuOpen = false;
+      menuBtn.addEventListener("click", () => {
+        if (!menuOpen) {
+          menuBtn.classList.add("open");
+          menuOpen = true;
+        } else {
+          menuBtn.classList.remove("open");
+          menuOpen = false;
+        }
+      });
+      const dropDown = document.querySelector(".dropdown");
+      let dropDownOpen = false;
+      menuBtn.addEventListener("click", () => {
+        if (!dropDownOpen) {
+          dropDown.classList.add("open");
+          dropDownOpen = true;
+        } else {
+          dropDown.classList.remove("open");
+          dropDownOpen = false;
+        }
+      });
+      const juniorLinkList = document.querySelector("#juniorLinkList");
+      const juniorCollapsible = document.querySelector(".juniorCollapsible");
+      const vertPlusjun = document.querySelector("#vertPlusjun");
+      let juniorLinkListOpen = false;
+      juniorLinkList.addEventListener("click", () => {
+        if (!juniorLinkListOpen) {
+          juniorLinkList.classList.add("open");
+          juniorLinkListOpen = true;
+          juniorCollapsible.style.display = "block";
+          vertPlusjun.style.opacity = "0";
+        } else {
+          juniorLinkList.classList.remove("open");
+          juniorLinkListOpen = false;
+          juniorCollapsible.style.display = "none";
+          vertPlusjun.style.opacity = "1";
+        }
+      });
+      const seniorLinkList = document.querySelector("#seniorLinkList");
+      const seniorCollapsible = document.querySelector(".seniorCollapsible");
+      const vertPlussen = document.querySelector("#vertPlussen");
+      let seniorLinkListOpen = false;
+      seniorLinkList.addEventListener("click", () => {
+        if (!seniorLinkListOpen) {
+          seniorLinkList.classList.add("open");
+          seniorLinkListOpen = true;
+          seniorCollapsible.style.display = "block";
+          vertPlussen.style.opacity = "0";
+        } else {
+          seniorLinkList.classList.remove("open");
+          seniorLinkListOpen = false;
+          seniorCollapsible.style.display = "none";
+          vertPlussen.style.opacity = "1";
+        }
+      });
+    </script>
   </body>
 </html>

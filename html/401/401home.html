@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="Images/IMG_7861.jpg" />
+    <link rel="shortcut icon" href="../../Images/Red.png" />
     <!--
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,27 +14,188 @@
     />
     <link
       rel="stylesheet"
-      href="/home/orion/Code/Html/portfolio/css/401/401home.css"
+      href="../../css/401/401home.css"
     />
     <title>Porfolio</title>
   </head>
   <body>
-    <header>
-      <h1 class="title">401 Home</h1>
-      <a href="/home/orion/Code/Html/portfolio/html/index.html" class="home"
-        >Home</a
-      >
-      <a href="401internships.html" class="homepagelink">401 Internships</a>
-      <a href="401levelupreqs.html" class="homepagelink"
-        >401 Level-Up Requirements</a
-      >
-      <a href="401writing.html" class="homepagelink">401 Writing</a>
-    </header>
-    <div id="dropdown">
-      <button id="test">Test</button>
-      <ul id="list">
-        <li id="test2">Test</li>
-      </ul>
+    <div class="load"></div>
+    <div id="nav">
+      <a href="../301/301home.html" id="junior">Junior</a>
+      <a href="../about.html" id="about">About</a>
+      <a href="../index.html" id="home">Home</a>
     </div>
+    <div class="menubtn">
+      <div class="menubtnburger"></div>
+    </div>
+    <div class="dropdown">
+      <div class="dropdown-content">
+        <ul class="dropdownLinks">
+          <li id="homeLinkList">
+            <a id="homeLink" href="index.html">Home</a>
+          </li>
+          <li id="juniorLinkList">
+            <a id="juniorLink" href="#">Junior</a>
+            <div id="horizPlusjun"></div>
+            <div id="vertPlusjun"></div>
+          </li>
+          <ul class="juniorCollapsible">
+            <li>
+              <a
+                id="juniorHome"
+                href="../301/301home.html"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                id="juniorInternships"
+                href="../301/301internships.html"
+                >Internships</a
+              >
+            </li>
+            <li>
+              <a
+                id="juniorLevelupreqs"
+                href="../301/301levelupreqs.html"
+                >LevelUp</a
+              >
+            </li>
+            <li>
+              <a
+                id="juniorWriting"
+                href="../301/301writing.html"
+                >Writing</a
+              >
+            </li>
+            <li>
+              <a
+                id="juniorExhibitions"
+                href="../301/301exhibitions/301exhibitionshome.html"
+                >Exhibitions</a
+              >
+            </li>
+            <li>
+              <a
+                id="juniorProjects"
+                href="../301/301projects/301projectshome.html"
+                >Projects</a
+              >
+            </li>
+          </ul>
+          <li id="seniorLinkList">
+            <a id="seniorLink" href="#">Senior</a>
+            <div id="horizPlussen"></div>
+            <div id="vertPlussen"></div>
+          </li>
+          <ul class="seniorCollapsible">
+            <li>
+              <a
+                id="seniorHome"
+                class="active"
+                href="401/401home.html"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                id="seniorInternships"
+                href="401/401internships.html"
+                >Internships</a
+              >
+            </li>
+            <li>
+              <a
+                id="seniorLevelupreqs"
+                href="401/401levelupreqs.html"
+                >LevelUp</a
+              >
+            </li>
+            <li>
+              <a
+                id="seniorWriting"
+                href="401/401writing.html"
+                >Writing</a
+              >
+            </li>
+            <li>
+              <a
+                id="seniorExhibitions"
+                href="401/401exhibitions/401exhibitionshome.html"
+                >Exhibitions</a
+              >
+            </li>
+            <li>
+              <a
+                id="seniorProjects"
+                href="401/401projects/401projectshome.html"
+                >Projects</a
+              >
+            </li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <p id="title">401 Home</p>
+    </div>
+    <script>
+      const menuBtn = document.querySelector(".menubtn");
+      let menuOpen = false;
+      menuBtn.addEventListener("click", () => {
+        if (!menuOpen) {
+          menuBtn.classList.add("open");
+          menuOpen = true;
+        } else {
+          menuBtn.classList.remove("open");
+          menuOpen = false;
+        }
+      });
+      const dropDown = document.querySelector(".dropdown");
+      let dropDownOpen = false;
+      menuBtn.addEventListener("click", () => {
+        if (!dropDownOpen) {
+          dropDown.classList.add("open");
+          dropDownOpen = true;
+        } else {
+          dropDown.classList.remove("open");
+          dropDownOpen = false;
+        }
+      });
+      const juniorLinkList = document.querySelector("#juniorLinkList");
+      const juniorCollapsible = document.querySelector(".juniorCollapsible");
+      const vertPlusjun = document.querySelector("#vertPlusjun");
+      let juniorLinkListOpen = false;
+      juniorLinkList.addEventListener("click", () => {
+        if (!juniorLinkListOpen) {
+          juniorLinkList.classList.add("open");
+          juniorLinkListOpen = true;
+          juniorCollapsible.style.display = "block";
+          vertPlusjun.style.opacity = "0";
+        } else {
+          juniorLinkList.classList.remove("open");
+          juniorLinkListOpen = false;
+          juniorCollapsible.style.display = "none";
+          vertPlusjun.style.opacity = "1";
+        }
+      });
+      const seniorLinkList = document.querySelector("#seniorLinkList");
+      const seniorCollapsible = document.querySelector(".seniorCollapsible");
+      const vertPlussen = document.querySelector("#vertPlussen");
+      let seniorLinkListOpen = false;
+      seniorLinkList.addEventListener("click", () => {
+        if (!seniorLinkListOpen) {
+          seniorLinkList.classList.add("open");
+          seniorLinkListOpen = true;
+          seniorCollapsible.style.display = "block";
+          vertPlussen.style.opacity = "0";
+        } else {
+          seniorLinkList.classList.remove("open");
+          seniorLinkListOpen = false;
+          seniorCollapsible.style.display = "none";
+          vertPlussen.style.opacity = "1";
+        }
+      });
+    </script>
   </body>
 </html>
