@@ -512,10 +512,10 @@ Dark Grey: #696773
 }
 
 #horizPlusjun {
-  display: inline-block;
   cursor: pointer;
   content: "";
-  margin-top: 12.2px;
+  margin-top: -12px;
+  margin-left: 94px;
   position: absolute;
   width: 10px;
   height: 2px;
@@ -525,10 +525,10 @@ Dark Grey: #696773
 }
 
 #vertPlusjun {
-  display: inline-block;
   cursor: pointer;
   content: "";
-  margin-top: 12.2px;
+  margin-top: -12px;
+  margin-left: 94px;
   position: absolute;
   width: 10px;
   height: 2px;
@@ -539,10 +539,10 @@ Dark Grey: #696773
 }
 
 #horizPlussen {
-  display: inline-block;
   cursor: pointer;
   content: "";
-  margin-top: 12.2px;
+  margin-top: -12px;
+  margin-left: 94px;
   position: absolute;
   width: 10px;
   height: 2px;
@@ -552,10 +552,10 @@ Dark Grey: #696773
 }
 
 #vertPlussen {
-  display: inline-block;
   cursor: pointer;
   content: "";
-  margin-top: 12.2px;
+  margin-top: -12px;
+  margin-left: 94px;
   position: absolute;
   width: 10px;
   height: 2px;
