@@ -13,12 +13,16 @@
   src: url("../../fonts/montserrat/Montserrat-SemiBold.otf");
 }
 
-body{
+body, html{
+  position: absolute;
+  max-width: 100vw;
+  width: 100%;
   height: 100vh;
-  width: 100vw;
   background-color: #0D0221;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   user-select: none;
+  margin: 0;
 }
 
 .load {
@@ -67,7 +71,8 @@ body{
   font-size: 20px;
   justify-content: center;
   align-items: center;
-  margin-top: 2vh;
+  transform: translate(0, 2vh);
+  /* animation: fade 2s 1.45s ease forwards; */
 }
 
 #junior {
@@ -162,8 +167,10 @@ body{
   align-items: center;
   justify-content: center;
   transition: all 0.5s ease;
+  transform: translate(0, 2vh);
   margin-top: -30px;
   margin-left: 18px;
+  /* animation: fade 2s 1.45s ease forwards; */
 }
 
 .menubtn:hover {
@@ -203,7 +210,7 @@ body{
 }
 
 .menubtn.open {
-  transform: translateX(186px);
+  transform: translate(186px, 2vh);
 }
 
 .menubtn.open .menubtnburger::before {
@@ -215,6 +222,7 @@ body{
 }
 
 .dropdown-content {
+  transform: translate(0, 2vh);
   z-index: 1;
   display: block;
   opacity: 0;
