@@ -42,11 +42,9 @@
   pointer-events: none;
   color: #81fbf2;
   font-size: 50px;
-  display: block;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
   text-align: center;
-  margin-top: 20vh;
+  transform: translateY(20vh);
   /* animation: fade 2s 1.45s ease forwards; */
   user-select: none;
 }
@@ -55,12 +53,10 @@
   font-family: "Bebas Neue Bold";
   pointer-events: none;
   color: #ffffff;
-  font-size: 20px;
-  display: block;
-  align-items: center;
-  justify-content: center;
+  font-size: 30px;
+  width: 100%;
   text-align: center;
-  margin-top: 1vh;
+  transform: translateY(23vh);
   /* animation: fade 2s 1.5s ease forwards; */
   user-select: none;
 }
@@ -70,42 +66,43 @@
   pointer-events: none;
   color: #81fbf2;
   font-size: 200px;
-  display: block;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
   text-align: center;
-  margin-top: 1vh;
+  transform: translateY(26vh);
   /* animation: fade 2s 1.55s ease forwards; */
   user-select: none;
 }
 
-#and {
-  font-family: "Bebas Neue Bold";
-  pointer-events: none;
-  color: #ffffff;
-  font-size: 20px;
-  display: block;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-top: -2.5vh;
-  /* animation: fade 2s 1.6s ease forwards; */
-  user-select: none;
-}
-
-#welcome {
+#desc1 {
   font-family: "Bebas Neue Bold";
   pointer-events: none;
   color: #81fbf2;
-  font-size: 200px;
-  display: block;
-  align-items: center;
-  justify-content: center;
+  line-height: 7vh;
+  width: 100%;
   text-align: center;
-  margin-top: 1vh;
-  /* animation: fade 2s 1.65s ease forwards; */
+  /* animation: fade 2s 1.55s ease forwards; */
+  user-select: none;
+  font-size: 25px;
+  transform: translateY(30vh);
+}
+
+#desc2 {
+  font-family: "Bebas Neue Bold";
+  pointer-events: none;
+  color: #81fbf2;
+  font-size: 25px;
+  line-height: 7vh;
+  width: 100%;
+  text-align: center;
+  transform: translateY(30vh);
+  /* animation: fade 2s 1.55s ease forwards; */
   user-select: none;
 }
+
+#more {
+  color: #fff;
+}
+
 
 body {
   background: #0d0221;
@@ -207,7 +204,7 @@ body {
   bottom: 0%;
   left: 0%;
   background-color: #0d0221;
-  z-index: 1;
+  z-index: 2;
   animation: slide 2.5s ease forwards;
 }
 
