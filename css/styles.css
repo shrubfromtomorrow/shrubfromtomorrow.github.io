@@ -73,20 +73,40 @@
   user-select: none;
 }
 
+.typing1 {
+  display: inline-block;
+  transform: translate(42vh, 30vh);
+}
+
 #desc1 {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: .15em solid #fff;
+  font-size: 25px;
+  width: 0;
+  letter-spacing: .1vh;
   font-family: "Bebas Neue Bold";
   pointer-events: none;
   color: #81fbf2;
-  line-height: 7vh;
-  width: 100%;
-  text-align: center;
-  /* animation: fade 2s 1.55s ease forwards; */
   user-select: none;
-  font-size: 25px;
-  transform: translateY(30vh);
+  animation:
+    typing 4s 2s steps(66, end) forwards,
+    blink .8s infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  from { border-color: transparent }
+  to { border-color: #fff; }
 }
 
 #desc2 {
+  letter-spacing: .1vh;
   font-family: "Bebas Neue Bold";
   pointer-events: none;
   color: #81fbf2;
