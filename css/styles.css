@@ -74,8 +74,9 @@
 }
 
 .typing1 {
-  display: inline-block;
-  transform: translate(42vh, 30vh);
+  display: flex;
+  justify-content: center;
+  transform: translateY(30vh);
 }
 
 #desc1 {
@@ -97,7 +98,7 @@
 
 @keyframes typing {
   from { width: 0 }
-  to { width: 100% }
+  to { width: calc(63ch) }
 }
 
 @keyframes blink {
