@@ -73,40 +73,7 @@
   user-select: none;
 }
 
-.typing1 {
-  display: flex;
-  justify-content: center;
-  transform: translateY(30vh);
-}
-
 #desc1 {
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: .15em solid #fff;
-  font-size: 25px;
-  width: 0;
-  letter-spacing: .1vh;
-  font-family: "Bebas Neue Bold";
-  pointer-events: none;
-  color: #81fbf2;
-  user-select: none;
-  animation:
-    typing 4s 2s steps(66, end) forwards,
-    blink .8s infinite;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: calc(63ch) }
-}
-
-@keyframes blink {
-  from { border-color: transparent }
-  to { border-color: #fff; }
-}
-
-#desc2 {
   letter-spacing: .1vh;
   font-family: "Bebas Neue Bold";
   pointer-events: none;
@@ -118,6 +85,41 @@
   transform: translateY(30vh);
   /* animation: fade 2s 1.55s ease forwards; */
   user-select: none;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: calc(21.5ch) }
+}
+
+@keyframes blink {
+  from { border-color: #fff }
+  to { border-color: transparent; }
+}
+
+.typing2 {
+  display: flex;
+  height: 22px;
+  justify-content: center;
+  transform: translateY(30vh);
+}
+
+
+#desc2 {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: .10em solid transparent;
+  font-size: 25px;
+  width: 0;
+  letter-spacing: .1vh;
+  font-family: "Bebas Neue Bold";
+  pointer-events: none;
+  color: #81fbf2;
+  user-select: none;
+  animation:
+    typing 2s 8s steps(23, end) forwards,
+    blink .8s 6s 9;
 }
 
 #more {
