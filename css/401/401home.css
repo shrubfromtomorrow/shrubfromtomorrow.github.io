@@ -58,7 +58,8 @@
   user-select: none;
   margin: 0;
   visibility: hidden;
-  animation: scrollability 1s 12s forwards;
+  /* animation: scrollability 1s 12s forwards; */
+  animation: scrollability 1s 1s forwards;
 }
 
 @keyframes scrollability {
@@ -80,7 +81,7 @@
   top: 0%;
   right: 0%;
   background-color: #0D0221;
-  z-index: 1;
+  z-index: 999;
   animation: slide 2.5s ease;
   animation-fill-mode: forwards;
 }
@@ -590,18 +591,32 @@
   gap: var(--gap);
 }
 
-.imageGrid > div, img {
+.imageGrid > div {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/*#test1 {
-    grid-column: span 2;
-}
-*/
-#test1 {
+#imageContainer {
     grid-row: span 2;
+}
+
+#imageCover {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+}
+
+#test1 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 100%;
+  transition: all 0.5s ease;
+}
+
+#test1:hover{
+  opacity: 30%;
 }
 
 #test2 {
