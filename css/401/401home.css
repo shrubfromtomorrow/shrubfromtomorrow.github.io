@@ -58,7 +58,7 @@
   user-select: none;
   margin: 0;
   visibility: hidden;
-  animation: scrollability 1s 12s forwards;
+  animation: scrollability 1s 1s forwards;
 }
 
 @keyframes scrollability {
@@ -590,34 +590,30 @@
 
 #lightsImCont {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(1, 1fr);
   grid-row: span 2;
   background-color: #0D0221;
   transition: all 0.5s ease;
+  height: 100%;
+  overflow-y: hidden;
 }
 
-#lightsImTextCont {
+#lightSum {
+  font-family: "Montserratsemibold", sans-serif;
+  display: flex;
+  font-size: 5vh;
+  text-align: center;
+  overflow-y: hidden;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #FEC9f1;
   grid-row-start: 1;
   grid-column-start: 1;
-  text-align: center;
-  margin: 0 !important;
-  opacity: 0;
-  transition: all 0.5s ease;
-}
-
-#lightsImText {
-  color: #FEC9F1;
-  font-family: "Montserratsemibold", sans-serif;
-  font-size: 20px;
-  transform: translate(10%, calc(43vh - 20px));
-  text-align: center;
-  height: auto;
-  width: 80%;
-  margin: 0 !important;
-  transition: all 0.5s ease;
 }
 
 #lightsIm {
+  overflow-y: hidden;
   grid-row-start: 1;
   grid-column-start: 1;
   width: 100%;
@@ -629,10 +625,6 @@
 
 #lightsImCont:hover > #lightsIm {
     opacity: 10%;
-}
-
-#lightsImCont:hover > #lightsImTextCont {
-  opacity: 100%;
 }
 
 #test2 {
