@@ -1,16 +1,17 @@
 * {
   margin: 0;
   padding: 0;
+  line-height: 1;
 }
 
 @font-face {
   font-family: "Bebas Neue Bold";
-  src: url("../../fonts/bebas-neue/BebasNeue-Bold.otf");
+  src: url("../../../fonts/bebas-neue/BebasNeue-Bold.otf");
 }
 
 @font-face {
   font-family: "Montserratsemibold";
-  src: url("../../fonts/montserrat/Montserrat-SemiBold.otf");
+  src: url("../../../fonts/montserrat/Montserrat-SemiBold.otf");
 }
 
 .containerFirstPage {
@@ -18,59 +19,64 @@
   max-width: 100vw;
   width: 100%;
   height: 100vh;
-  background-color: #0D0221;
+  background-color: #0d0221;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
   user-select: none;
   margin: 0;
 }
 
-.custom-shape-divider-top-1662075911 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
+.custom-shape-divider-top-1663694557 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
 }
 
-.custom-shape-divider-top-1662075911 svg {
-    position: relative;
-    display: block;
-    width: calc(126% + 1.3px);
-    height: 120px;
+.custom-shape-divider-top-1663694557 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 106px;
+  transform: rotateY(180deg);
 }
 
-.custom-shape-divider-top-1662075911 .shape-fill {
-    fill: #0D0221;
+.custom-shape-divider-top-1663694557 .shape-fill {
+  fill: #0d0221;
 }
 
 .containerSecondPage {
   position: absolute;
+  display: grid;
+  grid-template-rows: 3fr 16fr;
   max-width: 100vw;
   width: 100%;
-  top: 100vh;
-  height: 0;
-  background-color: #FEC9F1;
+  top: 100%;
+  background-color: #fec9f1;
   overflow-x: hidden;
   overflow-y: auto;
   user-select: none;
   margin: 0;
-  visibility: hidden;
-  animation: scrollability 1s 1s forwards;
 }
 
 @keyframes scrollability {
-  from { visibility: hidden;
-  height: 0}
-  to { visibility: visible;
-  height: 100vh}
+  from {
+    overflow-y: hidden;
+  }
+  to {
+    overflow-y: auto;
+  }
 }
 
 @keyframes typing {
-  from { width: 0 }
-  to { width: calc(51.5ch) }
+  from {
+    width: 0;
+  }
+  to {
+    width: calc(51.5ch);
+  }
 }
 
 .load {
@@ -79,7 +85,7 @@
   position: absolute;
   top: 0%;
   right: 0%;
-  background-color: #0D0221;
+  background-color: #0d0221;
   z-index: 1;
   animation: slide 2.5s ease;
   animation-fill-mode: forwards;
@@ -97,7 +103,7 @@
   }
   98% {
     width: 0%;
-    border-left: 2px solid #FEC9F1;
+    border-left: 2px solid #fec9f1;
   }
   100% {
     width: 0%;
@@ -126,8 +132,8 @@
 
 #junior {
   text-decoration: none;
-  color: #FEC9F1;
-  border: 1px solid #FEC9F1;
+  color: #fec9f1;
+  border: 1px solid #fec9f1;
   padding-top: 2px;
   padding-bottom: 2px;
   padding-left: 8px;
@@ -140,15 +146,15 @@
 #junior:focus {
   border-radius: 15px;
   text-decoration: underline;
-  border-color: #FF3366;
-  color: #FF3366;
+  border-color: #ff3366;
+  color: #ff3366;
   text-decoration-thickness: 1px;
 }
 
 #home {
   text-decoration: none;
-  color: #FEC9F1;
-  border: 1px solid #FEC9F1;
+  color: #fec9f1;
+  border: 1px solid #fec9f1;
   padding-top: 2px;
   padding-bottom: 2px;
   padding-left: 8px;
@@ -160,16 +166,16 @@
 #home:hover,
 #home:focus {
   border-radius: 15px;
-  border-color: #81FBF2;
+  border-color: #81fbf2;
   text-decoration: underline;
   text-decoration-thickness: 1px;
-  color: #81FBF2;
+  color: #81fbf2;
 }
 
 #about {
   text-decoration: none;
-  color: #FEC9F1;
-  border: 1px solid #FEC9F1;
+  color: #fec9f1;
+  border: 1px solid #fec9f1;
   padding-top: 2px;
   padding-bottom: 2px;
   padding-left: 8px;
@@ -182,8 +188,8 @@
 
 #about:hover,
 #about:focus {
-  color: #0197F6;
-  border: 1px solid #0197F6;
+  color: #0197f6;
+  border: 1px solid #0197f6;
   border-radius: 15px;
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -200,19 +206,27 @@
   transform: translateY(calc(50vh - 100px));
   font-family: "Bebas Neue Bold";
   font-size: 200px;
-  color: #FEC9F1;
+  color: #fec9f1;
   /* animation: fade 2s 1.45s ease forwards; */
   user-select: none;
 }
 
 @keyframes typing {
-  from { width: 0 }
-  to { width: calc(51.5ch) }
+  from {
+    width: 0;
+  }
+  to {
+    width: calc(57.5ch);
+  }
 }
 
 @keyframes blink {
-  from { border-color: #fff }
-  to { border-color: transparent; }
+  from {
+    border-color: #fff;
+  }
+  to {
+    border-color: transparent;
+  }
 }
 
 .typingBlurb {
@@ -226,55 +240,70 @@
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
-  border-right: .10em solid transparent;
+  border-right: 0.1em solid transparent;
   font-size: 25px;
   width: 0;
-  letter-spacing: .1vh;
+  letter-spacing: 0.1vh;
   font-family: "Bebas Neue Bold";
   pointer-events: none;
-  color: #FEC9F1;
+  color: #fec9f1;
   user-select: none;
-  animation:
-    typing 4s 5s steps(55, end) forwards,
-    blink .8s 4s 9;
+  animation: typing 4s 4s steps(57, end) forwards, blink 0.8s 2s 11;
 }
 
 #highlightsPrompt {
   text-align: center;
   font-size: 25px;
-  letter-spacing: .1vh;
+  letter-spacing: 0.1vh;
   font-family: "Bebas Neue Bold";
   pointer-events: none;
-  color: #FEC9F1;
+  color: #fec9f1;
   opacity: 0;
   transform: translateY(67vh);
   user-select: none;
-  animation: fadein 1.5s 11s forwards;
+  animation: fadein 1.5s 10.5s forwards;
 }
 
 #scrollCaret {
   text-align: center;
   font-size: 15px;
-  letter-spacing: .1vh;
+  letter-spacing: 0.1vh;
   font-family: "Montserratsemibold", sans-serif;
   pointer-events: none;
-  color: #FEC9F1;
+  color: #fec9f1;
   opacity: 0;
   user-select: none;
-  animation:
-    fadein 1.5s 11.25s forwards,
-    bob .5s 11.5s forwards;
+  animation: fadein 1.5s 11s forwards, bob 0.5s 11.25s forwards;
 }
 
 @keyframes fadein {
-  from {opacity: 0}
-  to {opacity: 100;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
+  }
 }
 
 @keyframes bob {
-  0% {transform: translateY(0vh);}
-  50% {transform: translateY(1vh);}
-  100% {transform: translateY(0vh);}
+  0% {
+    transform: translateY(0vh);
+  }
+  50% {
+    transform: translateY(1vh);
+  }
+  100% {
+    transform: translateY(0vh);
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
+  }
 }
 
 .menubtn {
@@ -283,7 +312,7 @@
   display: flex;
   width: 40px;
   height: 40px;
-  border: 1px solid #FEC9F1;
+  border: 1px solid #fec9f1;
   align-items: center;
   justify-content: center;
   transition: all 0.5s ease;
@@ -385,7 +414,7 @@
   font-family: "Montserratsemibold";
   font-weight: 400;
   text-decoration: none;
-  color: #FEC9F1;
+  color: #fec9f1;
   font-size: 20px;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -399,7 +428,7 @@
   text-decoration: underline;
   transition: all 0.5s ease;
   text-decoration-thickness: 1px;
-  color: #81FBF2;
+  color: #81fbf2;
 }
 
 .juniorCollapsible {
@@ -407,7 +436,7 @@
   display: none;
   font-family: "Montserratsemibold", sans-serif;
   text-decoration: none;
-  color: #FEC9F1;
+  color: #fec9f1;
   font-weight: 400;
   font-size: 15px;
   padding-top: 0px;
@@ -425,7 +454,7 @@
   display: none;
   font-family: "Montserratsemibold", sans-serif;
   text-decoration: none;
-  color: #FEC9F1;
+  color: #fec9f1;
   font-weight: 400;
   font-size: 15px;
   padding-top: 0px;
@@ -446,7 +475,7 @@
 #juniorProjects {
   text-decoration: none;
   transition: all 0.5s ease;
-  color: #FEC9F1;
+  color: #fec9f1;
 }
 
 #juniorHome:hover,
@@ -458,11 +487,11 @@
   text-decoration: underline;
   transition: all 0.5s ease;
   text-decoration-thickness: 1px;
-  color: #FF3366;
+  color: #ff3366;
 }
 
 .active {
-  border-left: 1px solid #81FBF2;
+  border-left: 1px solid #81fbf2;
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -476,7 +505,7 @@
   text-indent: 10px;
   text-decoration: none;
   transition: all 0.5s ease;
-  color: #FEC9F1;
+  color: #fec9f1;
 }
 
 #seniorHome:hover,
@@ -489,14 +518,14 @@
   text-decoration: underline;
   text-decoration-thickness: 1px;
   transition: all 0.5s ease;
-  color: #FEC9F1;
+  color: #fec9f1;
 }
 
 #seniorLink {
   text-align: left;
   font-family: "Montserratsemibold", sans-serif;
   text-decoration: none;
-  color: #FEC9F1;
+  color: #fec9f1;
   font-weight: 400;
   font-size: 20px;
   padding: 15px;
@@ -506,7 +535,7 @@
   text-align: left;
   font-family: "Montserratsemibold", sans-serif;
   text-decoration: none;
-  color: #FEC9F1;
+  color: #fec9f1;
   font-weight: 400;
   font-size: 20px;
   padding: 15px;
@@ -517,7 +546,7 @@
   transition: all 0.5s ease;
   font-family: "Montserratsemibold", sans-serif;
   text-decoration: none;
-  color: #FEC9F1;
+  color: #fec9f1;
   font-weight: 400;
   font-size: 20px;
   padding: 15px;
@@ -547,7 +576,7 @@
   background: white;
   border-radius: 2.5px;
   transition: all 0.5s ease;
-  transform: rotate(90deg)
+  transform: rotate(90deg);
 }
 
 #horizPlussen {
@@ -577,93 +606,189 @@
   transform: rotate(90deg);
 }
 
-.imageGrid {
-  display: grid;
-  box-sizing: border-box;
-  padding: 10px;
-  transform: translateY(15vh);
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: calc(43vh - 20px);
-  gap: 10px;
-}
-
-
-#lightsImCont {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-row: span 2;
-  background-color: #0D0221;
-  transition: all 0.5s ease;
-  height: 100%;
-  overflow-y: hidden;
-}
-
-#imageCont {
+header {
   display: flex;
-  grid-row: span 2;
-  background-color: #0D0221;
-  transition: all 0.5s ease;
-  height: 100%;
-  overflow-y: hidden;
-  grid-column-start: 1;
-  grid-row-start: 1;
 }
 
-#lightSum {
-  font-family: "Montserratsemibold", sans-serif;
+.subTitleCont {
+  flex-grow: 1;
+  margin-top: 7.5rem;
   display: flex;
-  font-size: 5vh;
-  padding: 1vw;
-  text-align: center;
-  overflow-y: hidden;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  color: #FEC9f1;
-  grid-row-start: 1;
-  grid-column-start: 1;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  color: white;
 }
 
-#lightsIm {
-  overflow-y: hidden;
-  grid-row-start: 1;
-  grid-column-start: 1;
+.subTitleCont > div {
+  width: 100%;
+  text-align: center;
+  font-family: "Bebas Neue Bold";
+  letter-spacing: 0.1vw;
+  font-size: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-radius: 2rem;
+  background-color: #0d0221;
+}
+
+.inTheBeginning {
+  user-select: text;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: "Montserratsemibold";
+  color: white;
+}
+
+.textCont1 {
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 2rem;
+  background-color: #0d0221;
+}
+
+#paraTitle1 {
+  font-family: "Bebas Neue Bold";
+  letter-spacing: 0.1vw;
+  text-align: center;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+#mainBody1 {
+  font-size: clamp(0.6rem, 1vw, 1vw);
+  line-height: 2;
+  padding: 1rem;
+}
+
+#mainBody1 > a {
+  text-decoration: none;
+  transition: all 0.5s ease;
+}
+
+#mainBody1 > a:link:hover {
+  color: #fec9f1;
+  text-decoration: underline;
+}
+
+#mainBody1 > a:visited {
+  color: #fec9f1;
+}
+
+.textCont2 {
+  margin: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 2rem;
+  background-color: #0d0221;
+}
+
+#paraTitle2 {
+  font-family: "Bebas Neue Bold";
+  letter-spacing: 0.1vw;
+  text-align: center;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+#mainBody2 {
+  font-size: clamp(0.6rem, 1vw, 1vw);
+  line-height: 2;
+  padding: 1rem;
+}
+
+.theCode {
+  user-select: text;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 4fr 3fr 3fr;
+  font-family: "Montserratsemibold";
+  color: white;
+}
+
+.theCodeHeaderCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: span 2;
+  border-radius: 2rem;
+  margin: 1rem;
+  background-color: #0d0221;
+}
+
+#theCodeHeader {
+  font-family: "Bebas Neue Bold";
+  letter-spacing: 0.1vw;
+  font-size: 4rem;
+  padding: 1rem;
+}
+
+.lightsImCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: span 1;
+  border-radius: 2rem;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  background-color: #0d0221;
+}
+
+#lights {
+  border-radius: 2rem;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: all 0.5s ease;
 }
 
-
-#lightsImCont:hover > #imageCont {
-  cursor: pointer;
-    opacity: 10%;
+.firstDescCont {
+  margin: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 2rem;
+  background-color: #0d0221;
 }
 
-#test2 {
-  background-color: red;
+#firstDesc {
+  font-size: clamp(0.6rem, 1vw, 1vw);
+  line-height: 2;
+  padding: 1rem;
 }
 
-#test3 {
-  background-color: blue;
+.firstDescpt2Cont {
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 2rem;
+  background-color: #0d0221;
 }
 
+#firstDescpt2 {
+  font-size: clamp(0.6rem, 1vw, 1vw);
+  line-height: 2;
+  padding: 1rem;
+}
 
+.firstCodeCont {
+  margin: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 2rem;
+  /* background-color: #0d0221; */
+}
 
+.firstCodeCont > img {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
 
+.procedureNote1Cont {
+  margin: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 2rem;
+  background-color: #0d0221;
+}
 
-
-
-
-
-
-
-
-
-/*
-Red: #FF3366
-Pink: #FEC9F1
-Black: #0D0221
-Light blue: #81FBF2
-Dark Grey: #696773
-*/
+#procedureNote1 {
+  font-size: clamp(0.6rem, 1vw, 1vw);
+  line-height: 2;
+  padding: 1rem;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../css/test.css" />
+        <link href="http://mozilla.github.io/foundation-icons/assets/foundation-icons.css" type="text/css" rel="stylesheet">
+        <!-- <link rel="preload" href="/home/orion/Downloads/newBackground.jpg"/> -->
+    </head>
+    <body>
+        <div class="firstPageCont">
+            <header>
+                <div class="navCont">
+                    <div class="expandable">
+                        <div class="menuBtn">
+                            <div class="menuBtnBurger"></div>
+                        </div>
+                    </div>
+                    <div class="topNavCont">
+                        <div class="topnav">
+                            <ul id="navList">
+                                <li>
+                                    <a id="junior"href="301/301home.html">Junior</a>
+                                </li>
+                                <li><a id="about"href="about.html">About</a></li>
+                                <li><a id="home"href="index.html">Home</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="columnMenu">
+                    <div id="juniorColumn">Junior</div>
+                    <div id="juniorChildCont">
+                        <a>Home</a>
+                        <a>Internships</a>
+                        <a>Writing</a>
+                        <a>Exhibitions</a>
+                        <a>Projects</a>
+                    </div>
+                    <div id="seniorColumn">Senior</div>
+                    <div id="seniorChildCont">
+                        <a>Home</a>
+                        <a>Internships</a>
+                        <a>Writing</a>
+                        <a>Exhibitions</a>
+                        <a>Projects</a>
+                    </div>
+                </div>
+                </header>
+            </header>
+            <main>
+                <div class="middleCont">
+                    <h1 id="title">Welcome</h1>
+                    <h3 id="blurb">This is a blurb</h3>
+                </div>
+            </main>
+            <footer>
+                <div class="scrollPrompt">
+                    <div id="scrollPromptText">Scroll down for a peek</div>
+                    <span class="icon-arrow-down"></span>
+                </div>
+            </footer>
+        </div>
+        <script>
+            const menuBtn = document.querySelector('.menuBtn');
+            const columnMenu = document.querySelector('.columnMenu');
+            let columnOpen = false;
+            let menuOpen = false;
+            menuBtn.addEventListener('click', () => {
+            if(!menuOpen) {
+                menuBtn.classList.add('open');
+                columnMenu.classList.add('open');
+                menuOpen = true;
+            } else {
+                menuBtn.classList.remove('open');
+                columnMenu.classList.remove('open');
+                menuOpen = false;
+            }
+            });
+        </script>
+    </body>
+</html>

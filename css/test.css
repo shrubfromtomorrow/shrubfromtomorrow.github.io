@@ -1,0 +1,351 @@
+:root {
+    --Red: #ff3366;
+    --Pink: #fec9f1;
+    --Black: #0d0221;
+    --LightBlue: #81fbf2;
+    --DarkGrey: #696773;
+    --MedBlue: #0197f6;
+    --White: #fdfffc;
+}
+
+@font-face {
+    font-family: "Bebas Neue Bold";
+    src: url("../fonts/bebas-neue/BebasNeue-Bold.otf");
+}
+@font-face {
+    font-family: "Montserrat Semibold";
+    src: url("../fonts/montserrat/Montserrat-SemiBold.otf");
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+}
+
+html {
+    line-height: 1;
+    box-sizing: border-box;
+    font-family: "Montserrat Semibold", sans-serif;
+    color: var(--White);
+}
+
+body {
+    background-color: var(--Black);
+    min-height: 100vh;
+    /* background-image: url("../Images/background.png");
+    background-size: cover; */
+}
+
+.firstPageCont {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    height: 100vh;
+}
+
+.navCont {
+    width: 100%;
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.expandable {
+    padding: 1.4rem;
+}
+
+.menuBtn {
+    position: relative;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    border: 1px solid var(--MedBlue);
+}
+
+.menuBtn:hover {
+    border-radius: 1.5rem;
+}
+
+.menuBtnBurger {
+    width: 2rem;
+    height: 0.2rem;
+    background: var(--White);
+    border-radius: 1em;
+    transition: all 0.3s ease-in-out;
+}
+
+.menuBtnBurger::before,
+.menuBtnBurger::after {
+    content: "";
+    position: absolute;
+    width: 2rem;
+    height: 0.2rem;
+    background: var(--White);
+    border-radius: 1em;
+    transition: all 0.3s ease-in-out;
+}
+
+.menuBtnBurger::before {
+    transform: translateY(-0.5rem);
+}
+.menuBtnBurger::after {
+    transform: translateY(0.5rem);
+}
+/* ANIMATION */
+.menuBtn.open .menuBtnBurger {
+    /* transform: translateX(-50px); */
+    background: transparent;
+}
+.menuBtn.open .menuBtnBurger::before {
+    transform: rotate(225deg);
+}
+
+.menuBtn.open .menuBtnBurger {
+    transform: rotate(270deg);
+}
+.menuBtn.open .menuBtnBurger::after {
+    transform: rotate(-45deg);
+}
+
+.topNavCont {
+    justify-content: center;
+    display: flex;
+}
+
+.topNav {
+    display: flex;
+    position: relative;
+}
+
+#navList {
+    padding: 0;
+    padding-top: 1.7rem;
+    font-size: clamp(1rem, 1.2vw, 1.2vw);
+    list-style-type: none;
+    display: inline-flex;
+}
+
+#navList > li {
+    padding-right: clamp(1rem, 4vw, 4vw);
+    padding-left: clamp(1rem, 4vw, 4vw);
+}
+
+#junior {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    text-decoration: none;
+    color: var(--White);
+    border: 1px solid var(--MedBlue);
+    transition: all 0.5s ease;
+}
+
+#junior:hover,
+#junior:focus {
+    border-radius: 1rem;
+    text-decoration: underline;
+    border-color: #ff3366;
+    color: #ff3366;
+    text-decoration-thickness: 1px;
+}
+
+#about {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    text-decoration: none;
+    color: var(--White);
+    border: 1px solid var(--MedBlue);
+    transition: all 0.5s ease;
+}
+
+#about:hover,
+#about:focus {
+    border-radius: 1rem;
+    border-color: var(--MedBlue);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    color: var(--MedBlue);
+}
+
+#home {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    text-decoration: none;
+    color: var(--White);
+    border: 1px solid var(--MedBlue);
+    transition: all 0.5s ease;
+}
+
+#home:hover,
+#home:focus {
+    color: var(--LightBlue);
+    border: 1px solid var(--LightBlue);
+    border-radius: 1rem;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+
+/* MAIN */
+
+.columnMenu {
+    position: absolute;
+    transform: translateX(-20rem);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+    font-size: 1.3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    color: var(--MedBlue);
+    border: 1px solid var(--White);
+    transition: all 0.3s ease-in-out;
+}
+
+.columnMenu.open {
+    transform: translateX(calc(0vw + 1.4rem));
+}
+
+#juniorColumn {
+    cursor: default;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+/* #juniorColumn::after {
+    color: var(--White);
+    font-family: "foundation-icons";
+    display: inline-block;
+    font-size: 1rem;
+    padding-left: 0.7rem;
+    content: "\e902";
+    transition: all 0.3s ease-in-out;
+}
+
+#juniorColumn:hover::after {
+    display: inline-block;
+    transform: scale(1, -1);
+} */
+
+#juniorChildCont {
+    color: var(--White);
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+#juniorChildCont > a {
+    font-size: 1rem;
+    /* border-bottom: 1px solid var(--White); */
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    padding-bottom: 0.2rem;
+    position: relative;
+}
+
+#juniorChildCont > a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 0.1rem;
+    background-color: var(--Red);
+    transition: all 0.3s ease;
+}
+
+#juniorChildCont > a:hover::before {
+    width: 100%;
+}
+
+#seniorColumn {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#seniorChildCont > a:hover::before {
+    width: 100%;
+}
+
+#seniorChildCont {
+    color: var(--White);
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    padding-bottom: 2rem;
+    flex-direction: column;
+    text-align: left;
+}
+
+#seniorChildCont > a {
+    font-size: 1rem;
+    /* border-bottom: 1px solid var(--White); */
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    padding-bottom: 0.2rem;
+    position: relative;
+}
+
+#seniorChildCont > a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 0.1rem;
+    background-color: var(--Pink);
+    transition: all 0.3s ease;
+}
+
+#seniorChildCont > a:hover::before {
+    width: 100%;
+}
+
+.middleCont {
+    font-family: "Bebas Neue Bold";
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#title {
+    font-size: clamp(8rem, 10vw, 10vw);
+    color: var(--MedBlue);
+}
+
+#blurb {
+    font-size: clamp(2rem, 1vw, 1vw);
+    padding-top: 1rem;
+}
+
+.scrollPrompt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 1.1rem;
+    flex-direction: column;
+}
+
+#scrollPromptText {
+    margin-top: 8rem;
+}
+
+.icon-arrow-down {
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
