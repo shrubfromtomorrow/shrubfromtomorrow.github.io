@@ -1,6 +1,6 @@
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
-}
+};
 
 const menuBtn = document.querySelector(".menubtn");
 let menuOpen = false;
@@ -58,4 +58,3 @@ seniorLinkList.addEventListener("click", () => {
     vertPlussen.style.opacity = "1";
   }
 });
-
