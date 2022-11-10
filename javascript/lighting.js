@@ -58,3 +58,5 @@ seniorLinkList.addEventListener("click", () => {
     vertPlussen.style.opacity = "1";
   }
 });
+
+

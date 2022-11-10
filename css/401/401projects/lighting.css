@@ -885,7 +885,7 @@ header {
   text-align: center;
   align-items: center;
   margin: 1rem;
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
   border-radius: 2rem;
   background-color: #0d0221;
 }
@@ -989,7 +989,7 @@ header {
   text-align: center;
   align-items: center;
   margin: 1rem;
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
   border-radius: 2rem;
   background-color: #0d0221;
 }
@@ -1122,7 +1122,7 @@ header {
   text-align: center;
   align-items: center;
   margin: 1rem;
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
   border-radius: 2rem;
   background-color: #0d0221;
 }
@@ -1174,4 +1174,385 @@ header {
 .hsvRainbowx100 > video {
   height: auto;
   width: 100%;
+}
+
+.pixelingSegueCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 2rem;
+  background-color: #0d0221;
+}
+
+#pixelingSegue {
+  font-size: clamp(0.7rem, 1.1vw, 1.1vw);
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.theBoardCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 2rem;
+  background-color: #0d0221;
+}
+
+#theBoard {
+  font-size: clamp(0.7rem, 1.1vw, 1.1vw);
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.theBoardImCont {
+  grid-column: span 1;
+  border-radius: 2rem;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#theBoardIm {
+  border-radius: 2rem;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.theBoardRandLightsCont {
+  grid-column: span 1;
+  border-radius: 2rem;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#theBoardRandLights {
+  border-radius: 2rem;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.crystallineLightsCont {
+  grid-column: span 1;
+  border-radius: 2rem;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#crystallineLights {
+  border-radius: 2rem;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.boardLightsExplCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 2rem;
+  background-color: #0d0221;
+}
+
+#boardLightsExpl {
+  font-size: clamp(0.7rem, 1.1vw, 1.1vw);
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.boardLightingAnim {
+  grid-column: span 1;
+  border-radius: 2rem;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+.boardLightingAnim > video {
+  height: auto;
+  width: 100%;
+}
+
+.endBoardSegCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 2rem;
+  background-color: #0d0221;
+}
+
+#endBoardSeg {
+  font-size: clamp(0.7rem, 1.1vw, 1.1vw);
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.lCont {
+  grid-column: span 1;
+  border-radius: 2rem;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#l {
+  border-radius: 2rem;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.rainbowCont {
+  grid-column: span 1;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#rainbow {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.rainbowTiltedCont {
+  grid-column: span 1;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#rainbowTilted {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.svedanCont {
+  grid-column: span 1;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#svedan {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.franceCont {
+  grid-column: span 1;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#france {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sauronCont {
+  grid-column: span 1;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#sauron {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pixelingImagesDescCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 2rem;
+  background-color: #0d0221;
+}
+
+#pixelingImagesDesc {
+  font-size: clamp(0.7rem, 1.1vw, 1.1vw);
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.multiDMABufferCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 2rem;
+  background-color: #0d0221;
+}
+
+#multiDMABuffer {
+  font-size: clamp(0.7rem, 1.1vw, 1.1vw);
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.dataLineLengthCont {
+  grid-column: span 1;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#dataLineLength {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.DMAExplCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 2rem;
+  background-color: #0d0221;
+}
+
+#DMAExpl {
+  font-size: clamp(0.7rem, 1.1vw, 1.1vw);
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.differentDataLinesCont {
+  grid-column: span 1;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#differentDataLines {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.DMAExpl2Cont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 2rem;
+  background-color: #0d0221;
+}
+
+#DMAExpl2 {
+  font-size: clamp(0.7rem, 1.1vw, 1.1vw);
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.separateLines {
+  grid-column: span 1;
+  border-radius: 2rem;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+.separateLines > video {
+  height: auto;
+  width: 100%;
+}
+
+.lightPlotExplCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 2rem;
+  background-color: #0d0221;
+}
+
+#lightPlotExpl {
+  font-size: clamp(0.7rem, 1.1vw, 1.1vw);
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.lightPlot2 {
+  grid-column: span 1;
+  border-radius: 2rem;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+.lightPlot2 > video {
+  height: auto;
+  width: 100%;
+}
+
+.theEndCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 2rem;
+  background-color: #0d0221;
+}
+
+#theEnd {
+  font-size: clamp(0.7rem, 1.1vw, 1.1vw);
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.lightSinCont {
+  grid-column: span 1;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#lightSin {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lightCubicCont {
+  grid-column: span 1;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#lightCubic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.itBothersMeCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 2rem;
+  background-color: #0d0221;
+}
+
+#itBothersMe {
+  font-size: clamp(0.7rem, 1.1vw, 1.1vw);
+  line-height: 1.5;
+  padding: 1rem;
 }
