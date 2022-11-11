@@ -123,7 +123,7 @@
           </div>
         </div>
         <div id="highlightsPrompt">
-          (Scroll for the highlights)
+          (Scroll for the content)
           <div id="scrollCaret">˅</div>
         </div>
       </div>
@@ -176,10 +176,9 @@
                 upon me and said "now's as good a time as any" and a video popped
                 into my YouTube feed. It was pretty unassuming, just a guide on
                 how to wire some WS2811 LEDs. I watched the video and came to
-                the realization that, I knew how to start!<br /><br />
-                Now of course, I did know a good way to start the project, as it
-                semi-prominently featured in the video I watched initially
-                regarding Christmas trees, but more importantly, I knew how to
+                the realization that I knew how to start!<br /><br />
+                I also knew the general process for getting the lights to a 
+                mapped state, but more importantly: I knew how to
                 write the code.<br /><br />
                 And so my journey began.
               </div>
@@ -198,7 +197,7 @@
               <div id="firstDesc">
                 This is where the images start but there was an intense electrical debugging session that occured before I came close to this point, so that is what I will walk you through.<br/> <br/>
                 There had been some lights and a Raspberry Pi 3b hanging around my house for a while so those were the first things I got, following the video I was recommended, I tried to wire the LEDs up.
-                The tutorial, however useful, was not helpful for my set of lights. I got the basic prinicple of how to get the adapters on but there was a lot of omitted information about what pins to use on the 
+                The tutorial, however useful, was not helpful for my set of lights. I got the basic prinicple of how to get the adapters for the lights' wiring on but there was a lot of omitted information about what pins to use on the 
                 Raspberry Pi, or which end was negative, or which end took in data and which end outputted data. It took a bit of work, but I got the idea of how to match what pin on the Pi to to what area on the lights.
                 I then came to the realization that the pins I needed were not magically in a row and I would need some jumper cables to carry the current between the lights and the Pi.<br/><br/>
                 Fast forward 2 days and I now have the Pi wired correctly, or so I thought. I had confused the notation GPIO 18, thinking it meant PHYSICAL pin 18, it did not.
@@ -206,9 +205,9 @@
               </div>
             </div>
             <div class="firstDescpt2Cont">
-              <div id="firstDescpt2">I don't have the exact code I wrote to do what it being done in the image above, but after poking around to figure out how the Neopixel library worked, I wrote some very simple stuff. Next to this is the first code I wrote that I have on record. <br/><br/>
-                This is relatively simple compared to what you might have to endure later, and the basic idea is the I am testing the refresh rate of the lights. From this is was able to understand that 50 lights can refresh at 189 hertz. That is faster than most gaming monitors.<br/><br/>
-                I also learned that the main thing that slows the lights updating was the .show() function (forshadowing). There is also some speed loss when using random numbere generation like I did here, but it is only a couple of seconds and since all my later tests are on the same scale, it can be disregarded.
+              <div id="firstDescpt2">I don't have the exact code I wrote to do what is being done in the image above, but after poking around to figure out how the Neopixel library worked, I wrote some very simple stuff. Next to this is the first code I wrote that I have on record. <br/><br/>
+                This is relatively simple compared to what you might have to endure later, and the basic idea is the I am testing the refresh rate of the lights. From this I was able to understand that 50 lights can refresh at 189 hertz. That is faster than most gaming monitors.<br/><br/>
+                I also learned that the main thing that slows the lights updating was the .show() function (foreshadowing). There is also some speed loss when using random number generation like I did here, but it is only a couple of seconds and since all my later tests are on the same scale, it can be disregarded.
               </div>
             </div>
             <div class="firstCodeCont">
@@ -220,7 +219,7 @@
                 <br/><br/>
                 Also included in my verion control is some prototypical code for capturing images of the lights, this code is iterated on frequently and is extremely important as the project progresses.
                 <br/><br/>
-                Another piece of ineffiency to mention is the fact that all the lights that I wish to turn on, are being sent, through SSH, as arguments on the command line. Think for a second, if I had 300 lights, thats some 1000 characters required to turn the lights on. This would be remedied quickly.
+                Another piece of ineffiency to mention is the fact that all the lights that I wish to turn on are being sent, through SSH, as arguments on the command line. Think for a second, if I had 300 lights. That's some 1000 characters required to turn the lights on. This would be remedied quickly.
               </div>
             </div>
             <div class="code2DescCont">
@@ -242,7 +241,7 @@
                   I moved on to tackle rotation.
                 <br/><br/>
                 The goal here was to create some really nice mathematical patterns using rotation. Rotation is a little 
-                tough, or at least they is when you don't know what you are doing. It just so happens that in the process of finding an effective method to represent
+                tough, or at least it is when you don't know what you are doing. It just so happens that in the process of finding an effective method to represent
                 rotation, I derived the 2 dimensional rotation matrix. That looks something like this:
               </div>
               <a href="https://latex.codecogs.com/" target="_blank" rel="noreferrer noopener"><img src="https://latex.codecogs.com/svg.image?\inline&space;\LARGE&space;{\color{White}\begin{bmatrix}x\\y\end{bmatrix}\begin{bmatrix}\cos{\theta}&space;&&space;&space;-\sin{\theta}\\\sin{\theta}&space;&&space;&space;\cos{\theta}\\\end{bmatrix}&space;=&space;\begin{bmatrix}x\prime\\y\prime\end{bmatrix}&space;"></a>
@@ -280,7 +279,7 @@
               </div>
             </div>
             <div class="rotationIssueCont">
-              <div id="rotationIssue">One piece of code I had written involved finding what section of a circle a point lay in. In order to find that, with the x and y coordinates I had, I needed to use arctan. <br/><br/>Using the ratio of opposite over adjacent, I would be able to find the radian measure of 
+              <div id="rotationIssue">One piece of code I had written involved finding what angle about a circle a point lay on. In order to find that, with the x and y coordinates I had, I needed to use arctan. <br/><br/>Using the ratio of opposite over adjacent, I would be able to find the radian measure of 
                 a point about my origin. This works because where tangent takes in an angle value and will return a ratio between two lengths (though what the lengths are is not explicit), the inverse function of tangent (arctangent) takes in a ratio of side lengths and returns an angle measure.
                 The range of these return values is between π/2 and -π/2 and so using some basic if statements I was able to determine which quadrant of the circle the point lay in and I would add π/2 if it was in the second or third. Arctan is shown below.
                 <br/><br/>
@@ -300,7 +299,7 @@
                 That's it. Using a different constant in front of theta would allow for a bigger or smaller spiral and that is all I needed.
                 <br/><br/>
                 With this, I would calculate a certain number of points, say 50, that would fit perfectly into a spiral shape. I would then use that code written earlier to figure out which lights 
-                were closest to each point, and then I would illuminate them. Once one spiral was illumiated, I would rotate all of the points using the matrix math above and I would get a new spiral.
+                were closest to each point and I would light them. Once one spiral was illuminated, I would rotate all of the points using the matrix math above and I would get a new spiral.
                 <br/><br/>
                 This feels to me like a dramatic oversimplification, but it really isn't. The principle is quite simple, the execution is another problem.
               </div>
@@ -308,22 +307,22 @@
             <div class="rotationComputationIssueCont">
               <div id="rotationComputationIssue">My methods for transferring the data regarding the lights that needed to be lit at this point had been precarious. The first way I did it was by computing all the lights that needed to be on, in
                 order, and then I sent those lights as arguments to the file execution in the command line where they were interpreted on the other side. Bad idea. The main issue with this is that you could only really send one pattern at a time without
-                writing some complex way to parse the light nubmers on the raspberry pi side. There is also some character limit in the shell I use that is somewhere around 5000.
+                writing some complex way to parse the light numbers on the raspberry pi side. There is also some character limit in the shell I use that is somewhere around 5000.
                 <br/><br/>
                 After realizing I wanted to do this in a more efficient way. I decided to write an execution program that would send a certain file to the raspberry pi, compute all of the 
                 lights and their coordinates there, and then light them up. This worked ok. However, as I mentioned before, doing the calculations on the raspberry pi is limited and if you are doing something like, say, calculating all of the points
                 on a spiral of a certain size and doing a bunch of trig to find the closest lights, you would have a long pause between animated frames.
                 <br/><br/>
-                The last, and current method, of data transfer comes in the form of precomputation on my computer. Effectively, I do everything I need to, calculation-wise, on my laptop and then I export a 
+                The last, and current, method of data transfer comes in the form of precomputation on my computer. Effectively, I do everything I need to, calculation-wise, on my laptop and then I export a 
                 "lightOrder.txt" file that contains a list of lists of lights that would need to be turned on at any given time. I then have a second piece of code that parses the lightOrder however I want.
                 For example, I could write that I wanted to sleep the program for 1 second between frames; I would write a sleep function into the parser each time it reads a list of lights.
                 This removes a lot of strain from the raspberry pi and is just a more stable and structured way of actually lighting the lights.
               </div>
             </div>
-            <div class="animationExplanationCont">
+            <!-- <div class="animationExplanationCont">
               <div id="animationExplanation">I understand that the math can be a bit hard to follow and that likely is due to my explanations through text. So I decided to make a fun animation to show the life of a light in my original spiral program.</div>
-            </div>
-            <div></div>
+            </div> -->
+            <!-- <div></div> -->
             <div class="jackCodeCont">
               <div id="jackCode">
                 When I first made the spiral code, I was calculating each frame on the raspberry pi. Given that it had to do at least 15,000 trig calculations (50 points, 300 lights to check distance), the frames came out really slowly. This was what pushed me to 
@@ -334,7 +333,7 @@
                 i again give 5i*i and since i is the square root of -1, multiplying i by itself gives -1, and multiplying -1 by 5 give -5. So multiplying by i is equivalent to a 90 degree rotation, but what about a more general formula? Well, this is it:<br/><br/>
                 <img src="https://latex.codecogs.com/svg.image?\LARGE&space;\color{white}(\cos{\theta}&space;&plus;&space;i\sin{\theta})(x&space;&plus;&space;iy)">
                 <br/><br/>
-                This is for θ being the angle by which you would like to rotation a point. This is only applicable for counterclockwise rotation. This code is faster than the 
+                This for θ being the angle by which you would like to rotation a point. This is only applicable for counterclockwise rotation. This code is faster than the 
                 matrix multiplication counterpart as it doesn't need to import another library and it only requires 2 trig functions.<br/>
                 Another way to speed this up is by creating a lookup table for rotational values. For example, if I am rotation by 18 degrees, I could create a lookup table for all the trig functions I would 
                 need to perform. Given that there are only 20 distinct angles, this is very feasible.<br/>
@@ -349,12 +348,12 @@
               <video controls muted><source src="../../../Images/reverseSpiral300JackCode.webm" type="video/webm"></video>
             </div>
             <div class="HSVCont">
-              <div id="HSV">Now, on to the second point I mentioned earlier, this will be more brief: HSV. HSV is a color standard, like RGB, but rather than taking 
+              <div id="HSV">Now, on to the second point I mentioned earlier, this will be more brief. HSV is a color standard, like RGB, but rather than taking 
                 3, 8-bit values to represent different amounts of red, green, and blue, HSV takes a Hue, a Saturation, and a Value. HSV was actually created in the first place 
                 for purposed related to computer graphics. My main use of it was as a way to iterate through the traditional rainbow.<br/><br/>
                 The traditional rainbow has 7 values, red, orange, yellow, green, blue, inigo, and violet. With RGB, I was unable to find a way to programmatically iterate through 
                 certain values of red, green, or blue so as to allow myself to create a rainbow. HSV, on the other hand, has the ability to do this quite easily as the 
-                hue value is measured in degrees. This would take far too long to explain so I will just add a picture.
+                hue value (as in the number, not the V in HSV) is measured in degrees. This would take far too long to explain so I will just add a picture.
               </div>
             </div>
             <div class="HSVImCont">

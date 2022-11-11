@@ -937,7 +937,7 @@ header {
   grid-column: span 1;
   border-radius: 2rem;
   margin: 1rem;
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
   /* background-color: #0d0221; */
 }
 
@@ -963,7 +963,7 @@ header {
   grid-column: span 1;
   border-radius: 2rem;
   margin: 1rem;
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
   /* background-color: #0d0221; */
 }
 
