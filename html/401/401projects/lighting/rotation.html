@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="../../../../Images/Red.png" />
+  <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,900;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../../../../css/401/401projects/lighting/rotation.css" />
+  <script type="text/javascript" src="https://www.maths.nottingham.ac.uk/plp/pmadw/LaTeXMathML.js"></script>
+  <title>Portfolio</title>
+</head>
+
+<body>
+  <section class="secondPage">
+    <div class="containerSecondPage">
+      <main>
+        <div class="theCode">
+          <div class="expansionsHeaderCont">
+            <div id="expansionsHeader">Rotation</div>
+          </div>
+          <div class="rotationTestDescCont">
+            <div id="rotationTestDesc">After a couple of small optimizations, like including the light coordinates
+              as a supplemental text file and being able to execute a certain program from a centralised exec file,
+              I moved on to tackle rotation.
+              <br /><br />
+              The goal here was to create some really nice mathematical patterns using rotation. Rotation is a little
+              tough, or at least it is when you don't know what you are doing. It just so happens that in the process of
+              finding an effective method to represent
+              rotation, I derived the 2 dimensional rotation matrix. That looks something like this:
+            </div>
+            <a href="https://latex.codecogs.com/" target="_blank" rel="noreferrer noopener"><img
+                src="https://latex.codecogs.com/svg.image?\inline&space;\LARGE&space;{\color{White}\begin{bmatrix}x\\y\end{bmatrix}\begin{bmatrix}\cos{\theta}&space;&&space;&space;-\sin{\theta}\\\sin{\theta}&space;&&space;&space;\cos{\theta}\\\end{bmatrix}&space;=&space;\begin{bmatrix}x\prime\\y\prime\end{bmatrix}&space;"></a>
+            <div>Where X and Y are input coordinates and X' and Y' are output coordinates.</div>
+          </div>
+          <div class="rotationTestResult">
+            <div id="rotationTestResultDesc">Below is the output of the simple test I created to check if my math was
+              correct (I did not know whether my math was correct or not because I had not thought to Google "rotation
+              matrix").</div>
+            <img src="../../../../Images/rotationTestResult.png">
+            <div id="rotationTestResultDesc2">And voilà! It worked! This was using an 18 degree rotation. This will be
+              useful later.</div>
+          </div>
+          <div class="recap1Cont">
+            <div id="recap1">So, at this point I had 100 lights set up in a horribly precarious situation, I had a
+              method for mapping and describing the geometric relation between the lights,
+              and I had some cool patterns. Really all I did in the following weeks was add more lights and create new
+              patterns. Following will be images and videos related to the light setup and the patterns I have created.
+              Please be advised that almost all of the videos so far were taken with my laptop camera that gets terribly
+              overexposed and is only 1280x720. The effect can be beneficial for seeing the macro of the light patterns.
+            </div>
+          </div>
+          <div class="light100Setup">
+            <img id="light100SetupIm" src="../../../../Images/100lightSetup.jpg">
+          </div>
+          <div class="centerOut100">
+            <video controls muted>
+              <source src="../../../../Images/adjustedCenter100.webm" type="video/webm">
+            </video>
+          </div>
+          <div class="fireworks200">
+            <video controls muted>
+              <source src="../../../../Images/fireworks200.webm" type="video/webm">
+            </video>
+          </div>
+          <div class="centerOutRotate300">
+            <video controls muted>
+              <source src="../../../../Images/centerOutRotate300.webm" type="video/webm">
+            </video>
+          </div>
+          <div class="animatedSpiral300Better">
+            <video controls muted>
+              <source src="../../../../Images/animatedSpiral300better.webm" type="video/webm">
+            </video>
+          </div>
+          <div class="montageIntermission1Cont">
+            <div id="montageIntermission1">And here we will take a pause. It is worth noting that, as of now, I have 30
+              recordings of various quality, I only wished to put the highlights in though.
+              I wanted to stop here to talk about two things, the magic of HSV, and the hardships of rotation.
+              <br /><br />
+              I'll start with the big issue I had with rotation as it ties in with the spiral you see.
+            </div>
+          </div>
+          <div class="rotationIssueCont">
+            <div id="rotationIssue">One piece of code I had written involved finding what angle about a circle a point
+              lay on. In order to find that, with the x and y coordinates I had, I needed to use arctan.
+              <br /><br />Using the ratio of opposite over adjacent, I would be able to find the radian measure of
+              a point about my origin. This works because where tangent takes in an angle value and will return a ratio
+              between two lengths (though what the lengths are is not explicit), the inverse function of tangent
+              (arctangent) takes in a ratio of side lengths and returns an angle measure.
+              The range of these return values is between π/2 and -π/2 and so using some basic if statements I was able
+              to determine which quadrant of the circle the point lay in and I would add π/2 if it was in the second or
+              third. Arctan is shown below.
+              <br /><br />
+              <img
+                src="https://latex.codecogs.com/svg.image?\LARGE&space;\color{white}r&space;=&space;\tan^{-1}(\frac{y}{x})">
+              <br /><br />
+              The issue with this is that the ratio of opposite over adjacent could return undefined. In the situation
+              where the adjacent side, or the x value, is 0, you would have an undefined output. And it just so happens
+              that in my real lighting setup, with my camera of 921,600 pixels, I had a light sitting EXACTLY on the y
+              axis (an x value of 0).
+              This was extremely difficult to debug as the error only occured on the 8th rotation (144 degrees) and it
+              was on light 270. This is truly fascinating as the likelihood of a light being on the y-axis at any
+              rotation is 720/921,600 or 0.078%. Not to mention that my decimal precision was set to 8, so the value of
+              the adjacent side was less than 0.00000000.
+            </div>
+          </div>
+          <div class="rotationImageCont">
+            <img id="rotationImage" src="../../../../Images/rotationImage.png">
+          </div>
+          <div class="rotationAndSpiralCont">
+            <div id="rotationAndSpiral">The whole point of dealing with rotation at all was at the challenge of a
+              friend. After showing them all the things I could do mathematically with the lights, they said I should
+              create a spiral.
+              A spiral came across as pretty daunting but it is actually quite simple.<br /><br />
+              <img src="https://latex.codecogs.com/svg.image?\LARGE&space;\color{white}r=\theta"><br /><br />
+              That's it. Using a different constant in front of theta would allow for a bigger or smaller spiral and
+              that is all I needed.
+              <br /><br />
+              With this, I would calculate a certain number of points, say 50, that would fit perfectly into a spiral
+              shape. I would then use that code written earlier to figure out which lights
+              were closest to each point and I would light them. Once one spiral was illuminated, I would rotate all of
+              the points using the matrix math above and I would get a new spiral.
+              <br /><br />
+              This feels to me like a dramatic oversimplification, but it really isn't. The principle is quite simple,
+              the execution is another problem.
+            </div>
+          </div>
+          <div class="rotationComputationIssueCont">
+            <div id="rotationComputationIssue">My methods for transferring the data regarding the lights that needed to
+              be lit at this point had been precarious. The first way I did it was by computing all the lights that
+              needed to be on, in
+              order, and then I sent those lights as arguments to the file execution in the command line where they were
+              interpreted on the other side. Bad idea. The main issue with this is that you could only really send one
+              pattern at a time without
+              writing some complex way to parse the light numbers on the raspberry pi side. There is also some character
+              limit in the shell I use that is somewhere around 5000.
+              <br /><br />
+              After realizing I wanted to do this in a more efficient way. I decided to write an execution program that
+              would send a certain file to the raspberry pi, compute all of the
+              lights and their coordinates there, and then light them up. This worked ok. However, as I mentioned
+              before, doing the calculations on the raspberry pi is limited and if you are doing something like, say,
+              calculating all of the points
+              on a spiral of a certain size and doing a bunch of trig to find the closest lights, you would have a long
+              pause between animated frames.
+              <br /><br />
+              The last, and current, method of data transfer comes in the form of precomputation on my computer.
+              Effectively, I do everything I need to, calculation-wise, on my laptop and then I export a
+              "lightOrder.txt" file that contains a list of lists of lights that would need to be turned on at any given
+              time. I then have a second piece of code that parses the lightOrder however I want.
+              For example, I could write that I wanted to sleep the program for 1 second between frames; I would write a
+              sleep function into the parser each time it reads a list of lights.
+              This removes a lot of strain from the raspberry pi and is just a more stable and structured way of
+              actually lighting the lights.
+            </div>
+          </div>
+          <!-- <div class="animationExplanationCont">
+              <div id="animationExplanation">I understand that the math can be a bit hard to follow and that likely is due to my explanations through text. So I decided to make a fun animation to show the life of a light in my original spiral program.</div>
+            </div> -->
+          <!-- <div></div> -->
+          <div class="jackCodeCont">
+            <div id="jackCode">
+              When I first made the spiral code, I was calculating each frame on the raspberry pi. Given that it had to
+              do at least 15,000 trig calculations (50 points, 300 lights to check distance), the frames came out really
+              slowly. This was what pushed me to
+              change the way I sent the data to precalculation with the lightOrder file. However, I wanted it to be
+              faster. The first thing to do here would be to use complex numbers rather than matrix multiplication.
+              Complex numbers are actually so commonly used
+              to represent rotation that the creators of Python made them a built-in function of the language. The way
+              complex numbers work for rotations best visualized with a picture.<br /><br />
+              A complex number is denoted by Z = Ai + B. i is the square root of -1. In our normal number system, no
+              number can be squared and equal -1, it just doesn't work. Thinking of the complex plane
+              as a number line that is perpendicular to our normal number line means that multiplying any number by i
+              will rotate it 90 degrees. If 5 is our starting point, multiplying by i give 5i. Multiplying by
+              i again give 5i*i and since i is the square root of -1, multiplying i by itself gives -1, and multiplying
+              -1 by 5 give -5. So multiplying by i is equivalent to a 90 degree rotation, but what about a more general
+              formula? Well, this is it:<br /><br />
+              <img
+                src="https://latex.codecogs.com/svg.image?\LARGE&space;\color{white}(\cos{\theta}&space;&plus;&space;i\sin{\theta})(x&space;&plus;&space;iy)">
+              <br /><br />
+              This for θ being the angle by which you would like to rotation a point. This is only applicable for
+              counterclockwise rotation. This code is faster than the
+              matrix multiplication counterpart as it doesn't need to import another library and it only requires 2 trig
+              functions.<br />
+              Another way to speed this up is by creating a lookup table for rotational values. For example, if I am
+              rotation by 18 degrees, I could create a lookup table for all the trig functions I would
+              need to perform. Given that there are only 20 distinct angles, this is very feasible.<br />
+              The last method of optimization came from a friend who realized that by changing the spiral's starting
+              point angle, all subsequent angles would be rotated already
+              as the spiral is built off of the last point's position. That code runs way faster and I have added a
+              video of what it looks like.
+            </div>
+          </div>
+          <div class="complexNumbersCont">
+            <img src="../../../../Images/complexNumbers.png" id="complexNumbers"></img>
+          </div>
+          <div class="animatedSpiral300Jack">
+            <video controls muted>
+              <source src="../../../../Images/reverseSpiral300JackCode.webm" type="video/webm">
+            </video>
+          </div>
+          <div class="HSVCont">
+            <div id="HSV">Now, on to the second point I mentioned earlier, this will be more brief. HSV is a color
+              standard, like RGB, but rather than taking
+              3, 8-bit values to represent different amounts of red, green, and blue, HSV takes a Hue, a Saturation, and
+              a Value. HSV was actually created in the first place
+              for purposed related to computer graphics. My main use of it was as a way to iterate through the
+              traditional rainbow.<br /><br />
+              The traditional rainbow has 7 values, red, orange, yellow, green, blue, inigo, and violet. With RGB, I was
+              unable to find a way to programmatically iterate through
+              certain values of red, green, or blue so as to allow myself to create a rainbow. HSV, on the other hand,
+              has the ability to do this quite easily as the
+              hue value (as in the number, not the V in HSV) is measured in degrees. This would take far too long to
+              explain so I will just add a picture.
+            </div>
+          </div>
+          <div class="HSVImCont">
+            <img src="../../../../Images/hsv.png" id="HSVIm"></img>
+          </div>
+          <div class="HSVExplCont">
+            <div id="HSVExpl">Now, I did not use this very much simply because I didn't need to make a rainbow or use
+              any other method of iterating
+              through hues that much, but it was a cool revelation that it was possible to create a rainbow so easily
+              just by changing the angle around the cylinder.
+              I did create a rainbow with this concept so I will add that.
+            </div>
+          </div>
+          <div class="hsvRainbowx100">
+            <video controls muted>
+              <source src="../../../../Images/hsvRainbowX100.webm" type="video/webm">
+            </video>
+          </div>
+        </div>
+      </main>
+    </div>
+</body>
+
+</html>
