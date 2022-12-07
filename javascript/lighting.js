@@ -61,6 +61,7 @@ seniorLinkList.addEventListener("click", () => {
 
 const buttons = document.querySelectorAll("[data-carousel-button]");
 const caption = document.querySelector("#caption");
+const captionCaption = document.querySelector("#captionCaption");
 buttons.forEach(button => {
   button.addEventListener("click", () => {
     const offest = button.dataset.carouselButton === "next" ? 1 : -1;
@@ -72,18 +73,46 @@ buttons.forEach(button => {
     slides.children[newIndex].dataset.active = true;
     delete activeSlide.dataset.active;
     if (newIndex == 0) {
-      caption.textContent = "The Setup"
+      captionCaption.textContent = "The general setup to the project and small bit of code.";
+      caption.textContent = "The Setup";
+      caption.href = "theSetup.html"
     }
     else if (newIndex == 1) {
-      caption.textContent = "Rotation"
+      captionCaption.textContent = "An explanation of the math involved for rotation.";
+      caption.textContent = "Rotation";
+      caption.href = "rotation.html"
     }
     else if (newIndex == 2) {
-      caption.textContent = "Pixeling"
+      captionCaption.textContent = "Turning the lights into a display.";
+      caption.textContent = "Pixeling";
+      caption.href = "pixeling.html"
     }
     else {
-      caption.textContent = "Doubled Lines"
+      captionCaption.textContent = "Making an improvement to the data throughput on the lights.";
+      caption.textContent = "Doubled Lines";
+      caption.href = "doubleLines.html"
     }
   })
 })
+
+const carousel = document.querySelector(".carousel");
+
+// CHECK LIGHTING ANIMATION COMMITS FOR SCROLL ANIMATION
+
+let shown = 0;
+let interval;
+const options = { threshold: 0.25 };
+const observer = new IntersectionObserver(function (entries, observer) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      shown++;
+      if (shown <= 1) {
+        console.log(entry);
+        carousel.classList.add("visible");
+      }
+    }
+  })
+}, options);
+observer.observe(carousel);
 
 

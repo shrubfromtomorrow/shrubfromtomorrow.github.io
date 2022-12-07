@@ -13,6 +13,11 @@
   src: url("../../../fonts/montserrat/Montserrat-SemiBold.otf");
 }
 
+@font-face {
+  font-family: "Open Sans";
+  src: url("../../../fonts/open-sans/OpenSans-Regular.ttf");
+}
+
 .containerFirstPage {
   position: absolute;
   max-width: 100vw;
@@ -48,17 +53,15 @@
 
 .containerSecondPage {
   position: absolute;
+  display: grid;
   max-width: 100vw;
   width: 100%;
-  top: 100vh;
-  height: 0;
-  background-color: #FEC9F1;
+  top: 100%;
+  background-color: #fec9f1;
   overflow-x: hidden;
   overflow-y: auto;
   user-select: none;
   margin: 0;
-  visibility: hidden;
-  animation: scrollability 1s 1s forwards;
 }
 
 @keyframes scrollability {
@@ -614,32 +617,215 @@
   transform: rotate(90deg);
 }
 
-.LC1LinkCont {
-  height: 100%;
-  width: auto;
+.exhibitionGrid {
+  grid-template-columns: 1fr 1fr;
+  margin-top: 9rem;
+  display: grid;
+  font-family: "Open Sans", sans-serif;
+}
+
+.exhibitionGrid>div {
+  background-color: #0D0221;
+  border-radius: 1rem;
+  font-size: 1.25rem;
+  line-height: 3ch;
+  color: #fff;
+  padding: 1rem;
+  /* margin: 1rem; */
+}
+
+.learningPlanHeaderCont {
   display: flex;
   justify-content: center;
-  align-items: center;
+  grid-column: span 2;
+  margin: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
-#LC1Link {
-  text-decoration: none;
-  text-decoration-color: #0D022100;
-  font-family: "Montserratsemibold",
-    sans-serif;
+#learningPlanHeader {
+  color: #fec9f1;
+  padding: 1rem;
+  padding-top: 1.4rem;
+  font-family: "Bebas Neue Bold";
   font-size: 4rem;
-  color: #0D0221;
-  transition: all 0.5s ease-in-out;
 }
 
-#LC1Link:hover,
-#LC1Link:focus {
-  text-decoration-color: #0D0221;
-  text-decoration: underline;
-  text-decoration-thickness: .25rem;
+.left {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  margin-left: 0.5rem;
+}
+
+#learningPlanGoals {
+  margin: 2rem;
+  margin-top: 1rem;
+}
+
+.internshipHeaderCont {
+  display: flex;
+  justify-content: center;
+  /* grid-column: span 2; */
+  margin: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+}
+
+#internshipHeader {
+  color: #fec9f1;
+  padding: 1rem;
+  padding-top: 1.4rem;
+  font-family: "Bebas Neue Bold";
+  font-size: 4rem;
+}
+
+.advisoryHeaderCont {
+  display: flex;
+  justify-content: center;
+  /* grid-column: span 2; */
+  margin: 1rem;
+  margin-left: 0.5rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+#advisoryHeader {
+  color: #fec9f1;
+  padding: 1rem;
+  padding-top: 1.4rem;
+  font-family: "Bebas Neue Bold";
+  font-size: 4rem;
+}
+
+.mathHeaderCont {
+  display: flex;
+  justify-content: center;
+  /* grid-column: span 2; */
+  margin: 1rem;
+  margin-right: 0.5rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+#mathHeader {
+  color: #fec9f1;
+  padding: 1rem;
+  padding-top: 1.4rem;
+  font-family: "Bebas Neue Bold";
+  font-size: 4rem;
+}
+
+.languageHeaderCont {
+  display: flex;
+  justify-content: center;
+  /* grid-column: span 2; */
+  margin: 1rem;
+  margin-left: 0.5rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+#languageHeader {
+  color: #fec9f1;
+  padding: 1rem;
+  padding-top: 1.4rem;
+  font-family: "Bebas Neue Bold";
+  font-size: 4rem;
 }
 
 
+.writingHeaderCont {
+  display: flex;
+  justify-content: center;
+  /* grid-column: span 2; */
+  margin: 1rem;
+  margin-right: 0.5rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+#writingHeader {
+  color: #fec9f1;
+  padding: 1rem;
+  padding-top: 1.4rem;
+  font-family: "Bebas Neue Bold";
+  font-size: 4rem;
+}
+
+.competenciesHeaderCont {
+  display: flex;
+  justify-content: center;
+  /* grid-column: span 2; */
+  margin: 1rem;
+  margin-left: 0.5rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+#competenciesHeader {
+  color: #fec9f1;
+  padding: 1rem;
+  padding-top: 1.4rem;
+  font-family: "Bebas Neue Bold";
+  font-size: 4rem;
+}
+
+.rightCompetencies {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  margin-left: 0.5rem;
+}
+
+#competencies {
+  border-radius: 1rem;
+}
+
+.capstoneHeaderCont {
+  display: flex;
+  justify-content: center;
+  grid-column: span 2;
+  margin: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+#capstoneHeader {
+  color: #fec9f1;
+  padding: 1rem;
+  padding-top: 1.4rem;
+  font-family: "Bebas Neue Bold";
+  font-size: 4rem;
+}
+
+
+#fireTablet {
+  border-radius: 1rem;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+#calculatorRequirements {
+  border-radius: 1rem;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
 
 
 

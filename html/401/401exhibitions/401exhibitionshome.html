@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="../../../Images/Red.png" />
+  <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,900;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../../../css/401/401exhibitions/401exhibitionshome.css" />
+  <title>401 Exhibitions</title>
+</head>
+
+<body>
+  <div class="load"></div>
+  <section class="firstPage">
+    <div class="containerFirstPage">
+      <div id="nav">
+        <a href="../../301/301home.html" id="junior">Junior</a>
+        <a href="../../about.html" id="about">About</a>
+        <a href="../../index.html" id="home">Home</a>
+      </div>
+      <div class="menubtn">
+        <div class="menubtnburger"></div>
+      </div>
+      <div class="dropdown">
+        <div class="dropdown-content">
+          <ul class="dropdownLinks">
+            <li id="homeLinkList">
+              <a id="homeLink" href="../../index.html">Home</a>
+            </li>
+            <li id="juniorLinkList">
+              <a id="juniorLink" href="#">Junior</a>
+              <div id="horizPlusjun"></div>
+              <div id="vertPlusjun"></div>
+            </li>
+            <ul class="juniorCollapsible">
+              <li>
+                <a id="juniorHome" href="../../301/301home.html">Home</a>
+              </li>
+              <li>
+                <a id="juniorInternships" href="../../301/301internships.html">Internships</a>
+              </li>
+              <li>
+                <a id="juniorLevelupreqs" href="../../301/301levelupreqs.html">LevelUp</a>
+              </li>
+              <li>
+                <a id="juniorWriting" href="../../301/301writing.html">Writing</a>
+              </li>
+              <li>
+                <a id="juniorExhibitions" href="../../301/301exhibitions/301exhibitionshome.html">Exhibitions</a>
+              </li>
+              <li>
+                <a id="juniorProjects" href="../../301/301projects/301projectshome.html">Projects</a>
+              </li>
+            </ul>
+            <li id="seniorLinkList">
+              <a id="seniorLink" href="#">Senior</a>
+              <div id="horizPlussen"></div>
+              <div id="vertPlussen"></div>
+            </li>
+            <ul class="seniorCollapsible">
+              <li>
+                <a id="seniorHome" href="../../401/401home.html">Home</a>
+              </li>
+              <li>
+                <a id="seniorInternships" href="../../401/401internships.html">Internships</a>
+              </li>
+              <li>
+                <a id="seniorLevelupreqs" href="../../401/401levelupreqs.html">LevelUp</a>
+              </li>
+              <li>
+                <a id="seniorWriting" href="../../401/401writing.html">Writing</a>
+              </li>
+              <li>
+                <a id="seniorExhibitions" class="active"
+                  href="../../401/401exhibitions/401exhibitionshome.html">Exhibitions</a>
+              </li>
+              <li>
+                <a id="seniorProjects" href="../../401/401projects/401projectshome.html">Projects</a>
+              </li>
+            </ul>
+          </ul>
+        </div>
+      </div>
+      <p id="title">401 Exhibitions</p>
+      <div class="typingBlurb">
+        <div id="blurb">This is the homepage for all of my 401 exhibitions</div>
+      </div>
+      <div id="highlightsPrompt">(Scroll for the links)
+        <div id="scrollCaret">˅</div>
+      </div>
+    </div>
+  </section>
+  <section class="secondPage">
+    <div class="containerSecondPage">
+      <div class="custom-shape-divider-top-1662075911">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path
+            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+            class="shape-fill"></path>
+        </svg>
+      </div>
+      <div class="LC1LinkCont"><a id="LC1Link" href="401LC1.html">Learning Cycle 1</a></div>
+    </div>
+  </section>
+  <script>
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    }
+    const menuBtn = document.querySelector(".menubtn");
+    let menuOpen = false;
+    menuBtn.addEventListener("click", () => {
+      if (!menuOpen) {
+        menuBtn.classList.add("open");
+        menuOpen = true;
+      } else {
+        menuBtn.classList.remove("open");
+        menuOpen = false;
+      }
+    });
+    const dropDown = document.querySelector(".dropdown");
+    let dropDownOpen = false;
+    menuBtn.addEventListener("click", () => {
+      if (!dropDownOpen) {
+        dropDown.classList.add("open");
+        dropDownOpen = true;
+      } else {
+        dropDown.classList.remove("open");
+        dropDownOpen = false;
+      }
+    });
+    const juniorLinkList = document.querySelector("#juniorLinkList");
+    const juniorCollapsible = document.querySelector(".juniorCollapsible");
+    const vertPlusjun = document.querySelector("#vertPlusjun");
+    let juniorLinkListOpen = false;
+    juniorLinkList.addEventListener("click", () => {
+      if (!juniorLinkListOpen) {
+        juniorLinkList.classList.add("open");
+        juniorLinkListOpen = true;
+        juniorCollapsible.style.display = "block";
+        vertPlusjun.style.opacity = "0";
+      } else {
+        juniorLinkList.classList.remove("open");
+        juniorLinkListOpen = false;
+        juniorCollapsible.style.display = "none";
+        vertPlusjun.style.opacity = "1";
+      }
+    });
+    const seniorLinkList = document.querySelector("#seniorLinkList");
+    const seniorCollapsible = document.querySelector(".seniorCollapsible");
+    const vertPlussen = document.querySelector("#vertPlussen");
+    let seniorLinkListOpen = false;
+    seniorLinkList.addEventListener("click", () => {
+      if (!seniorLinkListOpen) {
+        seniorLinkList.classList.add("open");
+        seniorLinkListOpen = true;
+        seniorCollapsible.style.display = "block";
+        vertPlussen.style.opacity = "0";
+      } else {
+        seniorLinkList.classList.remove("open");
+        seniorLinkListOpen = false;
+        seniorCollapsible.style.display = "none";
+        vertPlussen.style.opacity = "1";
+      }
+    });
+  </script>
+</body>
+
+</html>
