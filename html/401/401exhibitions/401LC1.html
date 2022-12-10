@@ -178,8 +178,8 @@
         <div class="languageHeaderCont">
           <div id="languageHeader">Language</div>
         </div>
-        <div class="left"></div>
-        <div class="right"></div>
+        <div class="left"> <img src="../../../Images/calc.png" id="math"></img></div>
+        <div class="right"> <img src="../../../Images/language.png" id="language"></img></div>
         <div class="writingHeaderCont">
           <div id="writingHeader">Writing</div>
         </div>
@@ -229,7 +229,674 @@
           developing the actual calculator interface as making progress physically was effectively stonewalled. <br />
           I (as you can see here) have had some experience with web development so I decided to write the calculator
           application in JavaScript as, when using the Electron library, I am able to develop a website that loads
-          natively on any desktop.</div>
+          natively on any desktop.<br />
+        </div>
+        <div class="right"><img src="../../../Images/calculatorDemo.png" id="calculatorDemo"></div>
+        <div class="leftResponsiveMath">One of the most important things for me in the basic calculator UI was
+          responsive math
+          entry. There are
+          several types of ways to write math. The usual way (as humans would do it) is called infix notation. That
+          would be denoted by something like a horizontal line with denominator that is physically below a numerator
+          in a fraction. <br />
+          Unfortunately, to create a fraction, you would need to press "/", and in the end the actual input looks
+          like:
+          x/y. As this is hard to read, I wanted to create a way for people to type math that looked like what we would
+          write. I found a nice library called mathquill that enabled me to do this. <br />
+          Another issue I had was actually calculating the math. The actual keyboard input of what I have on the picture
+          above is: 13^7/3-1/3/2*4E. You can see how difficult it is to read and there some order of operations issues
+          as well. {demonstrate order of ops issue}. <br />
+          Using another library, evaluatex, I am able to take the inputted math in the format above and turn it into
+          LaTeX. LaTeX is fantastic because it is very easy for computers to read and it removes all order of operations
+          issues. You can see the LaTeX above the output in the image.</div>
+        <div class="left">This is meant to be a graphing calculator as well, so I need to be able to graph something. I
+          found an open source project called graphy-js that fit my purposes almost exactly. It was, however, designed
+          to take JS code as input rather than something like LaTeX and it will take some tweaking to get a usable user
+          interface. <br /><br />
+          By using this process of finding a library, stitching it into the project and moving on without completely
+          finalizing will enable me to create a first prototype very (relatively speaking) quickly. </div>
+        <div class="right"><img src="../../../Images/graphingDemo.png" id="graphingDemo"></div>
+        <div class="lightingHeaderCont">
+          <div id="lightingHeader">Lighting</div>
+        </div>
+      </div>
+      <div class="theCode">
+        <div class="lightsImCont">
+          <img id="lights" src='../../../Images/humbleBeginnings.jpg'></img>
+        </div>
+        <div class="firstDescCont">
+          <div id="firstDesc">
+            This is where the images start but there was an intense electrical debugging session that occured before I
+            came
+            close to this point, so that is what I will walk you through.<br /> <br />
+            There had been some lights and a Raspberry Pi 3b hanging around my house for a while so those were the first
+            things I got, following the video I was recommended, I tried to wire the LEDs up.
+            The tutorial, however useful, was not helpful for my set of lights. I got the basic prinicple of how to get
+            the
+            adapters for the lights' wiring on but there was a lot of omitted information about what pins to use on the
+            Raspberry Pi, or which end was negative, or which end took in data and which end outputted data. It took a
+            bit of
+            work, but I got the idea of how to match what pin on the Pi to to what area on the lights.
+            I then came to the realization that the pins I needed were not magically in a row and I would need some
+            jumper
+            cables to carry the current between the lights and the Pi.<br /><br />
+            Fast forward 2 days and I now have the Pi wired correctly, or so I thought. I had confused the notation GPIO
+            18,
+            thinking it meant PHYSICAL pin 18, it did not.
+            After getting the wiring correct (I was able to tell by the lights flashing once when I plugged them
+            in).<br /> I
+            wrote some code.
+          </div>
+        </div>
+        <div class="firstDescpt2Cont">
+          <div id="firstDescpt2">I don't have the exact code I wrote to do what is being done in the image above, but
+            after
+            poking around to figure out how the Neopixel library worked, I wrote some very simple stuff. Next to this is
+            the
+            first code I wrote that I have on record. <br /><br />
+            This is relatively simple compared to what you might have to endure later, and the basic idea is the I am
+            testing
+            the refresh rate of the lights. From this I was able to understand that 50 lights can refresh at 189 hertz.
+            That
+            is faster than most gaming monitors.<br /><br />
+            I also learned that the main thing that slows the lights updating was the .show() function (foreshadowing).
+            There
+            is also some speed loss when using random number generation like I did here, but it is only a couple of
+            seconds
+            and since all my later tests are on the same scale, it can be disregarded.
+          </div>
+        </div>
+        <div class="firstCodeCont">
+          <img src="../../../Images/code1.png">
+        </div>
+        <div class="procedureNote1Cont">
+          <div id="procedureNote1">At this point it is important to note how the code is being executed. All of the code
+            I had
+            written was executing on the Raspberry Pi. This is because the only way to control the lights is through the
+            PWM
+            pins on the Pi.
+            Because all the code is being executed on the Pi, all of the calculations necessary to run the program are
+            also
+            being done on the Pi, and the Pi is significantly slower than my, or anybody's, laptop or computer. This
+            becomes a
+            problem later.
+            <br /><br />
+            Also included in my verion control is some prototypical code for capturing images of the lights, this code
+            is
+            iterated on frequently and is extremely important as the project progresses.
+            <br /><br />
+            Another piece of ineffiency to mention is the fact that all the lights that I wish to turn on are being
+            sent,
+            through SSH, as arguments on the command line. Think for a second, if I had 300 lights. That's some 1000
+            characters required to turn the lights on. This would be remedied quickly.
+          </div>
+        </div>
+        <div class="code2DescCont">
+          <div id="code2Desc">Here is a bit of code I wrote to create a "center out" pattern. Using the center
+            coordinate, I
+            find every light's distance from the center and I sort a final list by that distance. Iterating through
+            each light in the list and showing it is how the pattern is created.
+            <br /><br />
+            This is the foundation for the Closest function, a function that is used in almost every pattern i have
+            created
+            and if there was a single spot that I would target for computation time improvements, this function would be
+            it.
+          </div>
+        </div>
+        <div class="codeExample2Cont">
+          <img id="codeExample2" src="../../../Images/code2.png"></img>
+        </div>
+        <div class="rotationTestDescCont">
+          <div id="rotationTestDesc">After a couple of small optimizations, like including the light coordinates
+            as a supplemental text file and being able to execute a certain program from a centralized exec file,
+            I moved on to tackle rotation.
+            <br /><br />
+            The goal here was to create some really nice mathematical patterns using rotation. Rotation is a little
+            tough, or at least it is when you don't know what you are doing. It just so happens that in the process of
+            finding
+            an effective method to represent
+            rotation, I derived the 2 dimensional rotation matrix. That looks something like this:
+          </div>
+          <a href="https://latex.codecogs.com/" target="_blank" rel="noreferrer noopener"><img
+              src="https://latex.codecogs.com/svg.image?\inline&space;\LARGE&space;{\color{White}\begin{bmatrix}x\\y\end{bmatrix}\begin{bmatrix}\cos{\theta}&space;&&space;&space;-\sin{\theta}\\\sin{\theta}&space;&&space;&space;\cos{\theta}\\\end{bmatrix}&space;=&space;\begin{bmatrix}x\prime\\y\prime\end{bmatrix}&space;"></a>
+          <div>Where X and Y are input coordinates and X' and Y' are output coordinates.</div>
+        </div>
+        <div class="rotationTestResult">
+          <div id="rotationTestResultDesc">Below is the output of the simple test I created to check if my math was
+            correct (I
+            did not know whether my math was correct or not because I had not thought to Google "rotation matrix").
+          </div>
+          <img src="../../../Images/rotationTestResult.png">
+          <div id="rotationTestResultDesc2">And voilà! It worked! This was using an 18 degree rotation. This will be
+            useful
+            later.</div>
+        </div>
+        <div class="recap1Cont">
+          <div id="recap1">So, at this point I had 100 lights set up in a horribly precarious situation, I had a method
+            for
+            mapping and describing the geometric relation between the lights,
+            and I had some cool patterns. Really all I did in the following weeks was add more lights and create new
+            patterns.
+            Following will be images and videos related to the light setup and the patterns I have created. Please be
+            advised
+            that almost all of the videos so far were taken with my laptop camera that gets terribly overexposed and is
+            only
+            1280x720. The effect can be beneficial for seeing the macro of the light patterns.</div>
+        </div>
+        <div class="light100Setup">
+          <img id="light100SetupIm" src="../../../Images/100lightSetup.jpg">
+        </div>
+        <div class="centerOut100">
+          <video controls muted>
+            <source src="../../../Images/adjustedCenter100.webm" type="video/webm">
+          </video>
+        </div>
+        <div class="fireworks200">
+          <video controls muted>
+            <source src="../../../Images/fireworks200.webm" type="video/webm">
+          </video>
+        </div>
+        <div class="centerOutRotate300">
+          <video controls muted>
+            <source src="../../../Images/centerOutRotate300.webm" type="video/webm">
+          </video>
+        </div>
+        <div class="animatedSpiral300Better">
+          <video controls muted>
+            <source src="../../../Images/animatedSpiral300better.webm" type="video/webm">
+          </video>
+        </div>
+        <div class="montageIntermission1Cont">
+          <div id="montageIntermission1">And here we will take a pause. It is worth noting that, as of now, I have 30
+            recordings of various quality, I only wished to put the highlights in though.
+            I wanted to stop here to talk about two things, the magic of HSV, and the hardships of rotation.
+            <br /><br />
+            I'll start with the big issue I had with rotation as it ties in with the spiral you see.
+          </div>
+        </div>
+        <div class="rotationIssueCont">
+          <div id="rotationIssue">One piece of code I had written involved finding what angle about a circle a point lay
+            on.
+            In order to find that, with the x and y coordinates I had, I needed to use arctan. <br /><br />Using the
+            ratio of
+            opposite over adjacent, I would be able to find the radian measure of
+            a point about my origin. This works because where tangent takes in an angle value and will return a ratio
+            between
+            two lengths (though what the lengths are is not explicit), the inverse function of tangent (arctangent)
+            takes in a
+            ratio of side lengths and returns an angle measure.
+            The range of these return values is between π/2 and -π/2 and so using some basic if statements I was able to
+            determine which quadrant of the circle the point lay in and I would add π/2 if it was in the second or
+            third.
+            Arctan is shown below.
+            <br /><br />
+            <img
+              src="https://latex.codecogs.com/svg.image?\LARGE&space;\color{white}r&space;=&space;\tan^{-1}(\frac{y}{x})">
+            <br /><br />
+            The issue with this is that the ratio of opposite over adjacent could return undefined. In the situation
+            where the
+            adjacent side, or the x value, is 0, you would have an undefined output. And it just so happens that in my
+            real
+            lighting setup, with my camera of 921,600 pixels, I had a light sitting EXACTLY on the y axis (an x value of
+            0).
+            This was extremely difficult to debug as the error only occured on the 8th rotation (144 degrees) and it was
+            on
+            light 270. This is truly fascinating as the likelihood of a light being on the y-axis at any rotation is
+            720/921,600 or 0.078%. Not to mention that my decimal precision was set to 8, so the value of the adjacent
+            side
+            was less than 0.00000000.
+          </div>
+        </div>
+        <div class="rotationImageCont">
+          <img id="rotationImage" src="../../../Images/rotationImage.png">
+        </div>
+        <div class="rotationAndSpiralCont">
+          <div id="rotationAndSpiral">The whole point of dealing with rotation at all was at the challenge of a friend.
+            After
+            showing them all the things I could do mathematically with the lights, they said I should create a spiral.
+            A spiral came across as pretty daunting but it is actually quite simple.<br /><br />
+            <img src="https://latex.codecogs.com/svg.image?\LARGE&space;\color{white}r=\theta"><br /><br />
+            That's it. Using a different constant in front of theta would allow for a bigger or smaller spiral and that
+            is all
+            I needed.
+            <br /><br />
+            With this, I would calculate a certain number of points, say 50, that would fit perfectly into a spiral
+            shape. I
+            would then use that code written earlier to figure out which lights
+            were closest to each point and I would light them. Once one spiral was illuminated, I would rotate all of
+            the
+            points using the matrix math above and I would get a new spiral.
+            <br /><br />
+            This feels to me like a dramatic oversimplification, but it really isn't. The principle is quite simple, the
+            execution is another problem.
+          </div>
+        </div>
+        <div class="rotationComputationIssueCont">
+          <div id="rotationComputationIssue">My methods for transferring the data regarding the lights that needed to be
+            lit
+            at this point had been precarious. The first way I did it was by computing all the lights that needed to be
+            on, in
+            order, and then I sent those lights as arguments to the file execution in the command line where they were
+            interpreted on the other side. Bad idea. The main issue with this is that you could only really send one
+            pattern
+            at a time without
+            writing some complex way to parse the light numbers on the raspberry pi side. There is also some character
+            limit
+            in the shell I use that is somewhere around 5000.
+            <br /><br />
+            After realizing I wanted to do this in a more efficient way. I decided to write an execution program that
+            would
+            send a certain file to the raspberry pi, compute all of the
+            lights and their coordinates there, and then light them up. This worked ok. However, as I mentioned before,
+            doing
+            the calculations on the raspberry pi is limited and if you are doing something like, say, calculating all of
+            the
+            points
+            on a spiral of a certain size and doing a bunch of trig to find the closest lights, you would have a long
+            pause
+            between animated frames.
+            <br /><br />
+            The last, and current, method of data transfer comes in the form of precomputation on my computer.
+            Effectively, I
+            do everything I need to, calculation-wise, on my laptop and then I export a
+            "lightOrder.txt" file that contains a list of lists of lights that would need to be turned on at any given
+            time. I
+            then have a second piece of code that parses the lightOrder however I want.
+            For example, I could write that I wanted to sleep the program for 1 second between frames; I would write a
+            sleep
+            function into the parser each time it reads a list of lights.
+            This removes a lot of strain from the raspberry pi and is just a more stable and structured way of actually
+            lighting the lights.
+          </div>
+        </div>
+        <!-- <div class="animationExplanationCont">
+                            <div id="animationExplanation">I understand that the math can be a bit hard to follow and that likely is due to my explanations through text. So I decided to make a fun animation to show the life of a light in my original spiral program.</div>
+                          </div> -->
+        <!-- <div></div> -->
+        <div class="jackCodeCont">
+          <div id="jackCode">
+            When I first made the spiral code, I was calculating each frame on the raspberry pi. Given that it had to do
+            at
+            least 15,000 trig calculations (50 points, 300 lights to check distance), the frames came out really slowly.
+            This
+            was what pushed me to
+            change the way I sent the data to precalculation with the lightOrder file. However, I wanted it to be
+            faster. The
+            first thing to do here would be to use complex numbers rather than matrix multiplication. Complex numbers
+            are
+            actually so commonly used
+            to represent rotation that the creators of Python made them a built-in function of the language. The way
+            complex
+            numbers work for rotations best visualized with a picture.<br /><br />
+            A complex number is denoted by Z = Ai + B. i is the square root of -1. In our normal number system, no
+            number can
+            be squared and equal -1, it just doesn't work. Thinking of the complex plane
+            as a number line that is perpendicular to our normal number line means that multiplying any number by i will
+            rotate it 90 degrees. If 5 is our starting point, multiplying by i give 5i. Multiplying by
+            i again give 5i*i and since i is the square root of -1, multiplying i by itself gives -1, and multiplying -1
+            by 5
+            give -5. So multiplying by i is equivalent to a 90 degree rotation, but what about a more general formula?
+            Well,
+            this is it:<br /><br />
+            <img
+              src="https://latex.codecogs.com/svg.image?\LARGE&space;\color{white}(\cos{\theta}&space;&plus;&space;i\sin{\theta})(x&space;&plus;&space;iy)">
+            <br /><br />
+            This for θ being the angle by which you would like to rotation a point. This is only applicable for
+            counterclockwise rotation. This code is faster than the
+            matrix multiplication counterpart as it doesn't need to import another library and it only requires 2 trig
+            functions.<br />
+            Another way to speed this up is by creating a lookup table for rotational values. For example, if I am
+            rotation by
+            18 degrees, I could create a lookup table for all the trig functions I would
+            need to perform. Given that there are only 20 distinct angles, this is very feasible.<br />
+            The last method of optimization came from a friend who realized that by changing the spiral's starting point
+            angle, all subsequent angles would be rotated already
+            as the spiral is built off of the last point's position. That code runs way faster and I have added a video
+            of
+            what it looks like.
+          </div>
+        </div>
+        <div class="complexNumbersCont">
+          <img src="../../../Images/complexNumbers.png" id="complexNumbers"></img>
+        </div>
+        <div class="animatedSpiral300Jack">
+          <video controls muted>
+            <source src="../../../Images/reverseSpiral300JackCode.webm" type="video/webm">
+          </video>
+        </div>
+        <div class="HSVCont">
+          <div id="HSV">Now, on to the second point I mentioned earlier, this will be more brief. HSV is a color
+            standard,
+            like RGB, but rather than taking
+            3, 8-bit values to represent different amounts of red, green, and blue, HSV takes a Hue, a Saturation, and a
+            Value. HSV was actually created in the first place
+            for purposed related to computer graphics. My main use of it was as a way to iterate through the traditional
+            rainbow.<br /><br />
+            The traditional rainbow has 7 values, red, orange, yellow, green, blue, inigo, and violet. With RGB, I was
+            unable
+            to find a way to programmatically iterate through
+            certain values of red, green, or blue so as to allow myself to create a rainbow. HSV, on the other hand, has
+            the
+            ability to do this quite easily as the
+            hue value (as in the number, not the V in HSV) is measured in degrees. This would take far too long to
+            explain so
+            I will just add a picture.
+          </div>
+        </div>
+        <div class="HSVImCont">
+          <img src="../../../Images/hsv.png" id="HSVIm"></img>
+        </div>
+        <div class="HSVExplCont">
+          <div id="HSVExpl">Now, I did not use this very much simply because I didn't need to make a rainbow or use any
+            other
+            method of iterating
+            through hues that much, but it was a cool revelation that it was possible to create a rainbow so easily just
+            by
+            changing the angle around the cylinder.
+            I did create a rainbow with this concept so I will add that.
+          </div>
+        </div>
+        <div class="hsvRainbowx100">
+          <video controls muted>
+            <source src="../../../Images/hsvRainbowX100.webm" type="video/webm">
+          </video>
+        </div>
+        <div class="pixelingSegueCont">
+          <div id="pixelingSegue">So, after creating the spiral and its animated counterpart, I decided to take on a new
+            challenge. Up until this point, I had stayed pretty much in the
+            known territory of what you can do with lights like this. Mathematical patterns have been delved deeper into
+            by
+            many other people and there is a whole follow-up video to the
+            video I linked in the introduction that is a livestream that tests a bunch of user submitted code. All of
+            this to
+            say that this was a pretty saturated industry.
+            What I wanted to do was turn the lights into a display. A dumbed-down version of what you are using right
+            now. I
+            had no idea what the code would look like and I only
+            found a few instances of people doing this online.
+          </div>
+        </div>
+        <div class="theBoardCont">
+          <div id="theBoard">There were several problems I needed to tackle to get pixeling to work correctly, least of
+            which
+            was the material the lights were on.
+            However, despite the fact that I only implemented a solution to this after getting some prototype code
+            working, I
+            think that it would be good to start with this.
+            Taking photos of the LEDs is unpredictable at the best of times. The lights could be facing the wrong way,
+            you
+            could be taking all of your photos on a reflective white background
+            (hint hint), or you could have some random object that your lens picks up as perfect white for some reason.
+            Gaussian blur can only take me so far and the smallest error can
+            cost me a whole 10 minutes of my life. For this reason, I decided to make a black background for the lights.
+            I also wanted to create a more crystalline structure for the lights that would grant more consitency on
+            lighting
+            density. For this reason, I took the highly
+            in-depth and precise route of stapling the lights to a board that was painted black.
+          </div>
+        </div>
+        <div class="theBoardImCont">
+          <img src="../../../Images/theBoard.jpg" id="theBoardIm"></img>
+        </div>
+        <div class="theBoardRandLightsCont">
+          <img src="../../../Images/theBoardRandLights.jpg" id="theBoardRandLights"></img>
+        </div>
+        <div class="crystallineLightsCont">
+          <img src="../../../Images/crystallineLights.jpg" id="crystallineLights"></img>
+        </div>
+        <div class="boardLightsExplCont">
+          <div id="boardLightsExpl">The first picture is the board drying, the second is lights when they were just
+            flung and
+            slightly organised on the board (as well as mapped)
+            and the last picture is of the crystlline lights structure functioning as a laser pointer. The stapling took
+            a
+            while to do and taught
+            me that the electronics were pretty resilient (I stapled straight through the wire 3 times) and were pretty
+            unlikely to malfunction even when an
+            unexpected piece of metal was added to the circuit (staple). <br /><br />
+            I figured out pretty quickly when trying to organise the lights that it was not going to be as easy as I had
+            hoped. I wanted all of the power
+            connectors to be on the same end of the board so that the cable management was easier but this created a lot
+            of
+            difficulty. The lengths of the strings of
+            lights were just not the right length to go the length of the board an interger number of times. For fun
+            (using a
+            program that I will talk about later) I have created
+            visualiser for the way that the lights are lain out. There are switchbacks as well as crosses in a couple
+            places
+            but all in all, I think I acheived a pretty
+            decent density across the board (pun absolutely intended).
+          </div>
+        </div>
+        <div class="boardLightingAnim">
+          <video controls muted>
+            <source src="../../../Images/lightPlot.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="endBoardSegCont">
+          <div id="endBoardSeg">So with the bit about the board out of the way, I can talk about pixeling. To make
+            something
+            into a display, the first
+            step is to carve out your pixels. With this setup, it might seem logical to use a single light for each
+            pixel, and
+            you would be correct. There is a lack
+            of detail in certain areas on higher resolution images due to the resolution of my board being around 5√6
+            (12 ish)
+            by 10√6 (24 ish) but at this point,
+            the board's functionality is not as a perfect monitor.<br /><br /> The general pixeling
+            process is such: the image is translated into pixel-by-pixel color values and the lights are sort of
+            "overlayed"
+            onto the image. The lights find
+            out what color they are supposed to hold based on the pixel they are sitting on and all of that gets shipped
+            off
+            to a final array of lights and
+            their corresponding colors. If you are playing an animation, the process repeats with each sub array that is
+            full
+            of lights and corresponding colors
+            being added to a massive array that represents the whole animation. <br /><br />
+            The code was somewhat difficult to work out but in the end, it ended up being one of the shortest programs I
+            had
+            written for this project. And most
+            importantly, it works well! Within a certain critera. The lights themselves are not good at displaying brown
+            and
+            they do not have the greatest color
+            accuracy in general. Here are pieces of pixel art I made being displayed on the lights.
+          </div>
+        </div>
+        <div class="lCont">
+          <img src="../../../Images/l.jpg" id="l"></img>
+        </div>
+        <div class="rainbowCont">
+          <img src="../../../Images/rainbow.jpg" id="rainbow"></img>
+        </div>
+        <div class="rainbowTiltedCont">
+          <img src="../../../Images/rainbowTilted.jpg" id="rainbowTilted"></img>
+        </div>
+        <div class="svedanCont">
+          <img src="../../../Images/svedan.jpg" id="svedan"></img>
+        </div>
+        <div class="franceCont">
+          <img src="../../../Images/france.jpg" id="france"></img>
+        </div>
+        <div class="sauronCont">
+          <img src="../../../Images/sauron.jpg" id="sauron"></img>
+        </div>
+        <div class="pixelingImagesDescCont">
+          <div id="pixelingImagesDesc">As you can see from the images, when you have some large blocky input images
+            (flags), you can achieve a very recognisable look. In contrast to this, images with a fair amount
+            of intricate detail as well as specific levels of empty space (the Eye of Sauron) will leave something to be
+            desired.
+            There is also a fair amount of stretching on the Eye as the image is in a 1x1 ratio and my code is severly
+            flawed.
+            My code
+            creates the pixels themselves with ratioed dimensions. This means that all of the "pixels" that I have
+            artifically
+            created
+            would have dimensions of 1x2. Displays for monitors typically keep all of their pixels in the same aspect
+            ratio as
+            that makes
+            sense, I did not do that because I wasn't thinking very far ahead.<br /><br />
+            All in all though, for what this actually is (a really long string of lights), gaining this level of
+            abstraction
+            to 2D is pretty cool
+            and a sumnation of a whole lot of time and effort.<br />
+            This is not the conclusion, this is just the endpoint of the major expansions.
+          </div>
+        </div>
+        <div class="multiDMABufferCont">
+          <div id="multiDMABuffer">The last real part of the lighting for this project (for now) comes in the form of an
+            optimization. At this point, it was really slow
+            to get data all the way to the end of the strip of lights (picture to explain). Now, PWM is really fast, but
+            it
+            doesn't really get to shine
+            when there are microcontrollers that have to stop the data, process it, and pass it on again at every light.
+            They
+            takes AGES (microseconds) to get anything
+            done, so it seems natural to try to bypass them. My thought was simple, why not use two different data lines
+            to
+            pass information and section the lights
+            into even parts, that way I can simultaneously pass data into 150-light sections, HALVING the time it takes
+            for
+            the lights to get their information.<br />
+            Sadly, in the code itself, you have to check whether a light is of a certain index, and that alone is enough
+            to
+            account for the time saved. However,
+            there are more than just speed improvements to be had here. The lights use a combination of power from an
+            external
+            power supply with the 5 volts supplied
+            from the raspberry pi's GPIO pins, by separating the lights into two sections, I effectively double the
+            amount of
+            power I can put into the lights, leading
+            them to be brighter and to flicker less. Also, it means that I can use fewer raspberry pis to control more
+            lights
+            (half as many to be exact).<br /><br />
+            But the sugarplum fairly land of theory must come to an end.
+          </div>
+        </div>
+        <div class="dataLineLengthCont">
+          <img src="../../../Images/explanationOfDataLineLength.jpg" id="dataLineLength"></img>
+        </div>
+        <div class="DMAExplCont">
+          <div id="DMAExpl">Here is the issue. When I created the code to split the output into two data lines,
+            something
+            strange happened. Basically, I had the code
+            to show all of the updated lights on line one run before showing the updated lights on line two (the code
+            runs
+            fast enough that there is
+            not a noticable delay), but the two outputs overrode the other line. This would cause, say, the bottom 150
+            lights
+            to update both halves and the
+            top 150 lights would update both halves as well. It turns out that while the raspberry pi has multiple (5+)
+            dataouts (GPIO pins) that the lights can interpret,
+            there are only two LINES of output. Basically, GPIO 18 will get the same signal as, say, GPIO 22, but GPIO
+            23 will
+            have a different signal as GPIO 18.
+            A diagram would be best.<br /><br />
+            As you can see, there are two different lines that cover multiple output pins (the holes) and they produce
+            individual outputs. Moving the wire vertically
+            would not change the output thought it would change the pin number, moving horizontally would change the
+            output
+            and the pin number. So, you can only get
+            2 different outputs on the different lines, great, let's use some different pins and ... it still didn't
+            work.
+            <br />
+          </div>
+        </div>
+        <div class="differentDataLinesCont">
+          <img src="../../../Images/differentDataLines.png" id="differentDataLines"></img>
+        </div>
+        <div class="DMAExpl2Cont">
+          <div id="DMAExpl2">
+            At this point, it had been a few days (about 5) and I decided to turn to the library that all of this code
+            is
+            written on. The library itself is really just
+            a massive compilation of C code as C was probably the best language to write code that deals with PWM in. C
+            is
+            illegible, at least for me, as someone who
+            had, up to this point, dealt exculsively in highly abstracted high-level languages. For this, I had to
+            employ my
+            father. After some small lessons as well as
+            a doomscroll through the code, we found several hints to the existence of multi-line functionality.<br />
+            After a couple days, while having a look at the issue, my father tried a simple package reinstall. And that
+            was
+            it. We tested the lights again
+            and the lights were being properly separated into their individual lines. I have added a video with me
+            goofing
+            around with the separate data lines.<br />
+            At first, they run normally with two lines, then I take out the line for the bottom half to see them pause.
+            Then I
+            plug the 5 volt power line
+            into the dataline. The voltage waveform is not as managed as it is for PWM and so the data being sent is
+            just
+            about as random as you can get. Since the
+            microcontrollers on each LED only know 24 bit color values, they take a truly random value.
+            I then plug them back in normally and look at the result.
+          </div>
+        </div>
+        <div class="separateLines">
+          <video controls muted>
+            <source src="../../../Images/separateLines.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="lightPlotExplCont">
+          <div id="lightPlotExpl">The very last thing (again, for now) that I would like to talk about is my lightPlot
+            program. A side effect of processing
+            multi-megabyte images into color values is that the output file is quite large, even when repeats are
+            removed. For
+            this reason, it could become
+            costly if I sent a buggy piece of code or a pattern with no end to the lights. The way that the data is
+            stored
+            before being sent out the wire into
+            the lights is using a piece of memory called DMA, or Direct Media Access buffer. The data that is ready to
+            be
+            exported into the wire is queued in
+            the DMA buffer until the buffer recieves a "go" command, at that point all of the data is dumped into the
+            wire.
+            The "go" command, in this case, would
+            be the show() function that is used in my code. <br />
+            But say I forgot to end a loop. Or more specifically, the loop ends at some extraordinary number of loops.
+            Well,
+            all the data from every loop
+            before gets simultaneously dumped from the DMA buffer. That is a massive problem and if you do it
+            incorrectly
+            enough, the buffer lights
+            won't turn on for several minutes and it certainly won't be what you are expecting.<br />
+            For this reason, I thought it a resonable investement of time to create a testing platform for the lights.
+            Using
+            JavaScript and HTML Canvas,
+            I would create a program that could take an array input of the exact same format as the output in my Python
+            code,
+            and it would display the
+            lights virtually. This took a while to do, but I knew the result would be worth it. I learned a lot about
+            JavasScript and if this word is a link,
+            it means I have created a page to talk about it. In the end, I got exactly what I wanted, a low risk test
+            environment for any pattern I wanted to
+            create. You can see one example further back in the page when I demonstrate the path of the lights when they
+            are
+            stapled to the board, but here is
+            another.
+          </div>
+        </div>
+        <div class="lightPlot2">
+          <video controls muted>
+            <source src="../../../Images/lightPlot2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="theEndCont">
+          <div id="theEnd">And that is the end. Here are some pictures of functions graphed on the lights that didn't
+            really
+            have a spot
+            earlier.
+          </div>
+        </div>
+        <div class="lightSinCont">
+          <img src="../../../Images/lightSin.jpg" id="lightSin"></img>
+        </div>
+        <div class="lightCubicCont">
+          <img src="../../../Images/lightCubic.jpg" id="lightCubic"></img>
+        </div>
+        <div class="itBothersMeCont">
+          <div id="itBothersMe">It really bothers me that this is empty so I put some stuff here.</div>
+        </div>
       </div>
     </div>
   </section>
@@ -291,6 +958,32 @@
         vertPlussen.style.opacity = "1";
       }
     });
+
+
+    const options = { threshold: 0.10 };
+
+    let observer = new IntersectionObserver(function (entries) {
+      console.log(entries);
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          console.log(window.getComputedStyle(entry.target).opacity);
+        }
+      });
+    }, options);
+
+    const exhibitionGrid = document.querySelector(".exhibitionGrid");
+    const lightingGrid = document.querySelector(".theCode");
+    const children1 = exhibitionGrid.children;
+    const children2 = lightingGrid.children;
+
+    for (var i = 0; i < children1.length; i++) {
+      observer.observe(children1[i]);
+    }
+    for (var i = 0; i < children2.length; i++) {
+      observer.observe(children2[i]);
+    }
+
   </script>
 </body>
 

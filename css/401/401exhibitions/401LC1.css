@@ -631,7 +631,12 @@
   line-height: 3ch;
   color: #fff;
   padding: 1rem;
-  /* margin: 1rem; */
+  opacity: 0;
+  transition: all 250ms ease-in-out;
+}
+
+.exhibitionGrid>div.visible {
+  opacity: 1;
 }
 
 .learningPlanHeaderCont {
@@ -653,6 +658,7 @@
 
 .left {
   display: flex;
+  line-height: 7;
   align-items: center;
   text-align: center;
   margin-bottom: 1rem;
@@ -662,6 +668,7 @@
 
 .right {
   display: flex;
+  line-height: 7;
   align-items: center;
   text-align: center;
   margin-bottom: 1rem;
@@ -746,6 +753,19 @@
   font-size: 4rem;
 }
 
+#math {
+  border-radius: .25rem;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+#language {
+  border-radius: .25rem;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
 
 .writingHeaderCont {
   display: flex;
@@ -825,6 +845,908 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+#calculatorDemo {
+  border-radius: 1rem;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.leftResponsiveMath {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+}
+
+#graphingDemo {
+  border-radius: 1rem;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.lightingHeaderCont {
+  display: flex;
+  justify-content: center;
+  grid-column: span 2;
+  margin: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+#lightingHeader {
+  color: #fec9f1;
+  padding: 1rem;
+  padding-top: 1.4rem;
+  font-family: "Bebas Neue Bold";
+  font-size: 4rem;
+}
+
+.theCode {
+  font-family: "Open Sans";
+  /*line spacing*/
+  user-select: text;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* grid-template-rows: 1.5fr auto auto auto auto 1.5fr; */
+  /* font-family: "Montserratsemibold"; */
+  color: white;
+}
+
+.theCode>div {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  transition: all 250ms ease-in-out;
+}
+
+.theCode>div.visible {
+  opacity: 1;
+}
+
+.theCodeHeaderCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: span 2;
+  border-radius: 1rem;
+  margin: 1rem;
+  background-color: #0d0221;
+}
+
+#theCodeHeader {
+  font-family: "Bebas Neue Bold";
+  letter-spacing: 0.1vw;
+  font-size: 4rem;
+  padding: 3rem;
+}
+
+.lightsImCont {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  grid-column: span 1;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  background-color: #0d0221;
+}
+
+#lights {
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.firstDescCont {
+  margin: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#firstDesc {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.firstDescpt2Cont {
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#firstDescpt2 {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.firstCodeCont {
+  margin: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 1rem;
+  /* background-color: #0d0221; */
+}
+
+.firstCodeCont>img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.procedureNote1Cont {
+  grid-column: span 2;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#procedureNote1 {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.code2DescCont {
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#code2Desc {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.codeExample2Cont {
+  margin: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 1rem;
+  /* background-color: #0d0221; */
+}
+
+.codeExample2Cont>img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.expansionsHeaderCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: span 2;
+  border-radius: 1rem;
+  margin: 1rem;
+  background-color: #0d0221;
+}
+
+#expansionsHeader {
+  font-family: "Bebas Neue Bold";
+  letter-spacing: 0.1vw;
+  font-size: 4rem;
+  padding: 3rem;
+}
+
+.theCodeHeaderCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: span 2;
+  border-radius: 1rem;
+  margin: 1rem;
+  background-color: #0d0221;
+}
+
+.rotationTestDescCont {
+  text-align: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+.rotationTestDescCont>div {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.rotationTestResult {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+.rotationTestResult>img {
+  width: 20vw;
+  height: auto;
+}
+
+#rotationTestResultDesc {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+#rotationTestResultDesc2 {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.recap1Cont {
+  text-align: center;
+  align-items: center;
+  grid-column: span 2;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#recap1 {
+  font-size: clamp(1rem, 1.3vw, 1.3vw);
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.light100Setup {
+  grid-column: span 1;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#light100SetupIm {
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.centerOut100 {
+  grid-column: span 1;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+.centerOut100>video {
+  height: auto;
+  width: 100%;
+}
+
+.fireworks200 {
+  grid-column: span 1;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+.fireworks200>video {
+  height: auto;
+  width: 100%;
+}
+
+.centerOutRotate300 {
+  grid-column: span 1;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+.centerOutRotate300>video {
+  height: auto;
+  width: 100%;
+}
+
+.animatedSpiral300Better {
+  grid-column: span 1;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+.animatedSpiral300Better>video {
+  height: auto;
+  width: 100%;
+}
+
+.montageIntermission1Cont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#montageIntermission1 {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.rotationIssueCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#rotationIssue {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.rotationImageCont {
+  grid-column: span 1;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#rotationImage {
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rotationAndSpiralCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#rotationAndSpiral {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.rotationComputationIssueCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#rotationComputationIssue {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.animationExplanationCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#animationExplanation {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.jackCodeCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#jackCode {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.complexNumbersCont {
+  grid-column: span 1;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#complexNumbers {
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.animatedSpiral300Jack {
+  grid-column: span 1;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+.animatedSpiral300Jack>video {
+  height: auto;
+  width: 100%;
+}
+
+.HSVCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#HSV {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.HSVImCont {
+  grid-column: span 1;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#HSVIm {
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.HSVExplCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#HSVExpl {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.hsvRainbowx100 {
+  grid-column: span 1;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+.hsvRainbowx100>video {
+  height: auto;
+  width: 100%;
+}
+
+.pixelingSegueCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#pixelingSegue {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.theBoardCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#theBoard {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.theBoardImCont {
+  grid-column: span 1;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#theBoardIm {
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.theBoardRandLightsCont {
+  grid-column: span 1;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#theBoardRandLights {
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.crystallineLightsCont {
+  grid-column: span 1;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#crystallineLights {
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.boardLightsExplCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#boardLightsExpl {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.boardLightingAnim {
+  grid-column: span 1;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+.boardLightingAnim>video {
+  height: auto;
+  width: 100%;
+}
+
+.endBoardSegCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#endBoardSeg {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.lCont {
+  grid-column: span 1;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#l {
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.rainbowCont {
+  grid-column: span 1;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#rainbow {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.rainbowTiltedCont {
+  grid-column: span 1;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#rainbowTilted {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.svedanCont {
+  grid-column: span 1;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#svedan {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.franceCont {
+  grid-column: span 1;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#france {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sauronCont {
+  grid-column: span 1;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#sauron {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pixelingImagesDescCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#pixelingImagesDesc {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.multiDMABufferCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#multiDMABuffer {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.dataLineLengthCont {
+  grid-column: span 1;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#dataLineLength {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.DMAExplCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#DMAExpl {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.differentDataLinesCont {
+  grid-column: span 1;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#differentDataLines {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.DMAExpl2Cont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#DMAExpl2 {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.separateLines {
+  grid-column: span 1;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+.separateLines>video {
+  height: auto;
+  width: 100%;
+}
+
+.lightPlotExplCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#lightPlotExpl {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.lightPlot2 {
+  grid-column: span 1;
+  border-radius: 1rem;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+.lightPlot2>video {
+  height: auto;
+  width: 100%;
+}
+
+.theEndCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#theEnd {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.lightSinCont {
+  grid-column: span 1;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#lightSin {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lightCubicCont {
+  grid-column: span 1;
+  margin: 1rem;
+  margin-right: 0.5rem;
+  /* background-color: #0d0221; */
+}
+
+#lightCubic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.itBothersMeCont {
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 1rem;
+  background-color: #0d0221;
+}
+
+#itBothersMe {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding: 1rem;
 }
 
 

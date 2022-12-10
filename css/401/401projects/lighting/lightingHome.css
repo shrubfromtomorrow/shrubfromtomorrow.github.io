@@ -687,6 +687,7 @@ header {
 #mainBody1>a {
   text-decoration: none;
   transition: all 0.5s ease;
+  color: #fec9f1;
 }
 
 #mainBody1>a:link:hover {
@@ -986,14 +987,15 @@ header {
 .imageGrid {
   display: grid;
   grid-area: 4 / 2 / span 1 / span 1;
+  transition: all 100ms ease-in-out;
 }
 
 .slide {
   grid-area: 2 / 2 / span 1 / span 1;
   opacity: 0;
   z-index: -1;
-  transition: 100ms opacity ease-in-out;
-  transition-delay: 100ms;
+  transition: all 100ms ease-in-out;
+  /* transition-delay: 100ms; */
 }
 
 .slide>a>img {
@@ -1001,6 +1003,12 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: all 100ms ease-in-out;
+}
+
+.slide>a>img:hover {
+  transform: translate(5px, -5px);
+  box-shadow: -5px 5px black;
 }
 
 .slide[data-active] {

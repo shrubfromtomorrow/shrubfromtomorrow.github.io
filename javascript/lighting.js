@@ -107,12 +107,22 @@ const observer = new IntersectionObserver(function (entries, observer) {
     if (entry.isIntersecting) {
       shown++;
       if (shown <= 1) {
-        console.log(entry);
-        carousel.classList.add("visible");
+        entry.target.classList.add("visible");
       }
     }
   })
 }, options);
 observer.observe(carousel);
 
+const buttonPrev = document.getElementsByClassName("carouselPrev")[0];
+const buttonNext = document.getElementsByClassName("carouselNext")[0];
+
+document.onkeydown = function (event) {
+  if (event.key == "ArrowRight") {
+    buttonNext.click();
+  }
+  else if (event.key == "ArrowLeft") {
+    buttonPrev.click();
+  }
+}
 
