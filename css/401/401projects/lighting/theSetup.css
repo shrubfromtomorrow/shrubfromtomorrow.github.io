@@ -125,27 +125,6 @@
   text-decoration-thickness: 1px;
 }
 
-#home {
-  text-decoration: none;
-  color: #fec9f1;
-  border: 1px solid #fec9f1;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-left: 8px;
-  padding-right: 8px;
-  transition: all 0.5s ease;
-  /* animation: fade 2s 1.45s ease forwards; */
-}
-
-#home:hover,
-#home:focus {
-  border-radius: 15px;
-  border-color: #81fbf2;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  color: #81fbf2;
-}
-
 #about {
   text-decoration: none;
   color: #fec9f1;
@@ -679,6 +658,58 @@ header {
   font-size: clamp(0.7rem, 1.1vw, 1.1vw);
   line-height: 1.5;
   padding: 1rem;
+}
+
+#navLinks {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#navLinks>a {
+  font-family: "Open Sans";
+  font-size: clamp(0.7rem, 1.1vw, 1.1vw);
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #0d0221;
+  text-decoration: none;
+  color: #fec9f1;
+  border: 1px solid #fec9f1;
+  transition: all 0.5s ease;
+  border-radius: 1rem;
+  text-decoration: underline;
+  /* animation: fade 2s 1.45s ease forwards; */
+}
+
+#navLinks>a:hover {
+  cursor: pointer;
+  color: #0d0221;
+  background-color: #0d022100;
+}
+
+#navLinks2 {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#navLinks2>a {
+  font-family: "Open Sans";
+  font-size: clamp(0.7rem, 1.1vw, 1.1vw);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #0d0221;
+  text-decoration: none;
+  color: #fec9f1;
+  border: 1px solid #fec9f1;
+  transition: all 0.5s ease;
+  border-radius: 1rem;
+  text-decoration: underline;
+  /* animation: fade 2s 1.45s ease forwards; */
+}
+
+#navLinks2>a:hover {
+  cursor: pointer;
+  color: #0d0221;
+  background-color: #0d022100;
 }
 
 .theCode {
